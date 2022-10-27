@@ -1,0 +1,38 @@
+.mat-button .mat-button-focus-overlay {
+  background-color: map-get($mj-palette-primary, 600);
+}
+
+button.rounded {
+  border-radius: 28px !important;
+}
+
+.mat-stroked-mini-fab {
+  border: 1px solid currentColor !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+.mat-button-upload {
+  margin-top: 5px;
+  
+  button {
+    border: 1px dashed #1351b4!important;
+    height: 40px!important;
+  }
+
+  .mat-error {
+    margin-top: 0.6666666667em;
+    background-color: red;
+    padding: 4px 7px;
+    color: white;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.125;
+
+    .mat-icon {
+      width: 1em;
+      height: 1em;
+      font-size: inherit;
+      vertical-align: baseline;
+    }
+  }
+}

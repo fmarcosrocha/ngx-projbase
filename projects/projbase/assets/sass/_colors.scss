@@ -1,0 +1,48 @@
+.text-white {
+  color: map-get($mj-palette-primary, 50) !important;
+}
+
+.text-dark {
+  color: map-get($mj-palette-primary, 90) !important;
+}
+
+.text-primary {
+  color: map-get($mj-palette-primary, 700) !important;
+}
+
+.text-warn {
+  color: map-get($mj-palette-warn, 500) !important;
+}
+
+.text-accent {
+  color: map-get($mj-palette-accent, 500) !important;
+}
+
+.text-success {
+  color: map-get($mj-palette-success, 400) !important;
+}
+
+.bg-white {
+  background-color: map-get($mj-palette-primary, 50) !important;
+}
+
+.bg-dark {
+  background-color: map-get($mj-palette-primary, 900) !important;
+}
+
+.bg-primary {
+  background-color: map-get($mj-palette-primary, 700) !important;
+}
+
+.bg-warn {
+  background-color: map-get($mj-palette-warn, 500) !important;
+}
+
+.bg-accent {
+  background-color: map-get($mj-palette-accent, 500) !important;
+}
+
+.bg-success {
+  background-color: map-get($mj-palette-success, 400) !important;
+}
+

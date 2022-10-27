@@ -1,0 +1,25 @@
+@import "../projects/projbase/theme.scss";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Rawline, Raleway, sans-serif;
+}
+
+code pre {
+  background-color: #c8e6c9 !important;
+  padding: 10px !important;
+  overflow: auto !important;
+}
+
+.demo-inline-calendar-card {
+  width: 300px;
+}
+
+.bl-red {
+  border-left: 3px solid red;
+}

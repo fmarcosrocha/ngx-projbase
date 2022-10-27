@@ -1,0 +1,234 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "~@angular/material/theming";
+// Plus imports for other components in your app.
+
+@mixin mat-toolbar-typography($config-or-theme) {
+  $config: mat-get-typography-config($config-or-theme);
+  .mat-toolbar,
+  .mat-toolbar h1,
+  .mat-toolbar h2,
+  .mat-toolbar h3,
+  .mat-toolbar h4,
+  .mat-toolbar h5,
+  .mat-toolbar h6 {
+    /*@include mat-typography-level-to-styles($config, title);*/
+    margin: 0;
+  }
+}
+
+$general-typography: mat-typography-config(
+  $font-family: "Rawline, Raleway, sans-serif",
+  $display-4: mat-typography-level(112px, 112px, 300),
+  $display-3: mat-typography-level(56px, 56px, 400),
+  $display-2: mat-typography-level(45px, 48px, 400),
+  $display-1: mat-typography-level(34px, 40px, 400),
+  $headline: mat-typography-level(24px, 32px, 400),
+  $title: mat-typography-level(20px, 32px, 500),
+  $subheading-2: mat-typography-level(17.5px, 28px, 400),
+  $subheading-1: mat-typography-level(14px, 21px, 400),
+  $body-2: mat-typography-level(14px, 24px, 500),
+  $body-1: mat-typography-level(14px, 20px, 400),
+  $caption: mat-typography-level(12px, 20px, 400),
+  $button: mat-typography-level(16.5px, 16.5px, 500),
+  $input: mat-typography-level(inherit, 1.125, 400),
+);
+
+@mixin mat-list-typography($config-or-theme) {
+  $config: mat-get-typography-config($config-or-theme);
+
+  // Default list
+  .mat-list-base {
+    .mat-list-item {
+      font-size: mat-font-size($config, body-2);
+      @include mat-line-base(mat-font-size($config, body-1));
+    }
+
+    .mat-list-option {
+      font-size: mat-font-size($config, body-2);
+      @include mat-line-base(mat-font-size($config, body-1));
+    }
+
+    .mat-subheader {
+      font-family: mat-font-family($config, body-2);
+      font-size: mat-font-size($config, body-2);
+      font-weight: mat-font-weight($config, body-2);
+    }
+  }
+}
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core($general-typography);
+
+$mj-palette-primary: (
+  50: #fff,
+  100: #e5edfa,
+  200: #e3edfd,
+  300: #dbe8fb,
+  /* daqui para baixo cores do estaleiro*/ 400: #c5d4eb,
+  500: #5992ed,
+  600: #2670e8,
+  700: #1351b4,
+  800: #0c326f,
+  900: #071d41,
+  contrast: (
+    50: #333333,
+    100: #333333,
+    200: #333333,
+    300: #333333,
+    400: #333333,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+  ),
+);
+
+$mj-palette-warn: (
+  50: #ce0000,
+  100: #e60000,
+  /* cor do estaleiro */ 200: #f41605,
+  300: #ff210d,
+  400: #ff2911,
+  500: #ff5637,
+  600: #ff795b,
+  700: #ffa18a,
+  800: #ffc7b8,
+  900: #fee7e6,
+  contrast: (
+    50: #ffffff,
+    100: #ffffff,
+    200: #ffffff,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #333333,
+    700: #333333,
+    800: #333333,
+    900: #333333,
+  ),
+);
+
+$mj-palette-accent: (
+  50: #fae6f3,
+  100: #f3bfe2,
+  200: #ef96cf,
+  300: #ee6cba,
+  400: #ee4aa8,
+  500: #f12594,
+  600: #df258e,
+  700: #c72487,
+  /* cor do estaleiro 800: #b0237f, */ /* cor do estaleiro */ 800: #db4800,
+  900: #882072,
+  contrast: (
+    50: #333333,
+    100: #333333,
+    200: #333333,
+    300: #333333,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+  ),
+);
+
+$mj-palette-success: (
+  50: #e4f8ed,
+  100: #bcefd2,
+  200: #8fe4b5,
+  300: #62d997,
+  400: #41d080,
+  500: #1fc86a,
+  600: #1bc262,
+  700: #17bb57,
+  800: #12b44d,
+  900: #0aa73c,
+  A100: #d4ffdf,
+  A200: #a1ffba,
+  A400: #6eff95,
+  A700: #54ff82,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$mj-palette-input: (
+  50: #e4f8ed,
+  100: #bcefd2,
+  200: #8fe4b5,
+  300: #62d997,
+  400: #41d080,
+  500: #1fc86a,
+  600: #1bc262,
+  700: #17bb57,
+  800: #12b44d,
+  900: #0aa73c,
+  A100: #d4ffdf,
+  A200: #a1ffba,
+  A400: #6eff95,
+  A700: #54ff82,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$angular-arq-theme: mat-light-theme(
+  (
+    color: (
+      primary: mat-palette($mj-palette-primary, 700),
+      accent: mat-palette($mj-palette-accent, 800),
+      warn: mat-palette($mj-palette-warn),
+      success: mat-palette($mj-palette-success, 400),
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($angular-arq-theme);
+
+@import "./assets/sass/utilities";
+@import "./assets/sass/colors";
+@import "./assets/sass/breadcumb";
+@import "./assets/sass/layout";
+@import "./assets/sass/mat-button";
+@import "./assets/sass/mat-card";
+@import "./assets/sass/mat-date-picker";
+@import "./assets/sass/mat-dialog";
+@import "./assets/sass/mat-expansion-panel";
+@import "./assets/sass/mat-form-field";
+@import "./assets/sass/mat-icon";
+@import "./assets/sass/mat-radio";
+@import "./assets/sass/mat-table";

@@ -1,0 +1,188 @@
+<div class="">
+  <br/>
+  <p class="mat-h1">Informações do usuário logado</p>
+  <p>Usuário logado: {{userDTO?.firstName}} {{userDTO?.lastName}}</p>
+  <p>Email: {{userDTO?.email}}</p>
+  <p>Roles: {{userDTO?.roles}}</p>
+  <br/>
+  <br/>
+
+  <p class="mat-h1">Introdução</p>
+  <p>Para realização da POC (Prova de conceito) que deu origem a esta documentação, foi utilizada a ferramenta de SSO
+    Keycloak na versão 14.0.0, última versão disponível no momento de início este trabalho.</p>
+  <br/>
+
+  <p class="mat-h1">Integração das aplicações ao SSO do MJ, por tecnologia</p>
+  <br/>
+  <p class="mat-h1">Angular 11</p>
+  <p class="mat-h2">Pré-requisitos</p>
+
+  <p>Para iniciar com a configuração/implementação da integração com o SSO, primeiramente iremos adicionar as duas
+    bibliotecas npm necessárias para tal:</p>
+
+  <mat-card>npm install keycloak-angular keycloak-js</mat-card>
+  <br/>
+  <p>As versões utilizadas na elaboração dessa documentação foram: </p>
+
+  <mat-card>"keycloak-angular": "^8.3.0", <br/>
+    "keycloak-js": "^14.0.0",
+  </mat-card>
+
+  <br/>
+  <p class="mat-h2">Implementação</p>
+
+  <p>Primeiramente iremos remover o hash das url da aplicaçao, pois o mesmo faz com que o redirect do keycloak não
+    entenda a url de destino.</p>
+  <p>Na configuração das rotas (em sua maioria está nos arquivos XXX-routing.module ou XXX.module) adicione ou
+    altere o parâmetro <em>useHash</em> para <span class="text-black">false</span>.</p>
+
+  Ex:
+  <code><pre class="code">
+@NgModule( {{
+    imports: [RouterModule.forRoot(routes, {
+        useHash: false,
+        relativeLinkResolution: 'legacy'
+    })],
+    exports: [RouterModule]
+})</pre>
+  </code>
+
+  <p>Para iniciar a integração com o SSO, primeiramente precisamos cadastrar a aplicação como um CLIENTE do SSO. <a
+    href="https://www.keycloak.org/docs/latest/server_admin/#_clients">Ver</a></p>
+  <p>Observação: Para aplicações com frontend SPA (Angular, Vue, React, Ionic), o tipo de acesso deve ser public.</p>
+  <p>Observação: Para restringirmos ainda mais o acesso às roles somente do cliente, temos que desabilitar o Full Scope
+    Allowed dentro do Scope do client. <a href="https://www.keycloak.org/docs/latest/server_admin/#user-role-mappings">Ver</a></p>
+  <br/>
+  <p>Apos o registro do client, temos que configurar os parâmetros para integraçao, em aplicações angular, podemos
+    fazer isso nos environment, exemplo:</p>
+
+  <code><pre class="code">export const environment = {
+    ...
+    ssoUrl: 'http://dsv.sso.mj.gov.br/auth',
+    ssoClientId: 'sisexp',
+    ssoRealm: 'MJ'
+};</pre>
+  </code>
+
+  <p>No módulo que deverá ser privado (exige usuário autenticado e/ou usuário com perfil), adicionar as seguintes
+    configurações:</p>
+  <p>Primeiro, adicionar uma função para inicializar o cliente do keycloak: </p>
+
+  <code><pre class="code">function initializeKeycloak(keycloak: KeycloakService) {
+    return () => keycloak.init({
+        config: {
+          url: environment.ssoUrl,
+          realm: environment.ssoRealm,
+          clientId: environment.ssoClientId,
+        },
+       bearerExcludedUrls: ['/assets', '/public', 'https://cdn.dsgovserprodesign.estaleiro.serpro.gov.br/*']
+    });
+}</pre>
+  </code>
+
+  <p>Depois, importar os objetos e adicionar a função criada para inicializar a integração: Ex:</p>
+
+  <code><pre class="code"> @NgModule( {{
+    declarations: [
+        AppPrivateComponent
+    ],
+    imports: [
+        ...
+        KeycloakAngularModule
+    ],
+    providers: [
+        ...
+        provide: APP_INITIALIZER,
+        useFactory: initializeKeycloak,
+        multi: true,
+        deps: [KeycloakService]
+    ]
+    ...
+    </pre>
+  </code>
+
+  <p>Agora a aplicaçao já está configurada para integrar ao SSO, o próximo passo é detectar e configurar as rotas privadas.</p>
+
+  <p>A segurança das rotas é feita através de Guard. </p>
+
+  <p>Abaixo, um exemplo de Guard com os seguintes comportamentos:</p>
+
+  <p>1. Verifica se o usúario está autenticado, caso não, o mesmo é redirecionado para tela de login.</p>
+
+  <p>2. Com o usuário esteja autenticado e caso precise de determinada(s) Role(s) para acessar a rota, o guard verifica se o usuário possui ao menos
+    uma Role dentre as configuradas na rota, caso não possua, é exibida a mensagem "O usuário não possui acesso a este recurso!".</p>
+
+  <p>Exemplo de Guard:</p>
+
+  <code><pre class="code">
+import {Injectable} from '@angular/core';
+import {
+    ActivatedRouteSnapshot,
+    Router,
+    RouterStateSnapshot,
+} from '@angular/router';
+import {KeycloakAuthGuard, KeycloakService} from 'keycloak-angular';
+import {SwallUtil} from '../../shared/util/SwallUtil';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AuthGuard extends KeycloakAuthGuard {
+    constructor(
+      protected readonly router: Router,
+      protected readonly keycloak: KeycloakService
+    ) {
+    super(router, keycloak);
+  }
+
+  public isAccessAllowed = async (
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ) => {
+    if (!this.authenticated) {
+      await this.keycloak.login({
+          redirectUri: window.location.origin + state.url,
+        });
+    }
+
+    const requiredRoles = route.data.roles;
+
+    if (!(requiredRoles instanceof Array) || requiredRoles.length === 0) {
+      return true;
+    }
+
+    const contains = requiredRoles.some(r => this.roles.indexOf(r) >= 0);
+    if (!contains) {
+      SwallUtil.mensagemError('O usuário não possui acesso a este recurso!');
+    }
+    return contains;
+  }
+}
+  </pre>
+  </code>
+
+  <p>Exemplo de configuração de Guard e Roles na rota:</p>
+
+  <code>
+    <pre class="code">
+{ path: 'sso', component: SsoComponent, canActivate: [AuthGuard], data: {roles: ['Administrador']}}
+    </pre>
+  </code>
+
+  <p>Com isso, temos os elementos essencias para segurar nossa aplicação.</p>
+  <br/>
+
+  <p class="mat-h2">Serviços Úteis</p>
+
+  <p>Verificar se o usuario está logado: this.keycloak.isLoggedIn();</p>
+
+  <p>Como não estamos trafegando informações do usuário no Token JWT, para recuperar-las, temos o serviço: this.keycloak.loadUserProfile();</p>
+
+  <p>Verificar se o usuario logado possui determinada role: this.keycloak.isUserInRole('Administrador');</p>
+
+  <br/>
+  <br/>
+
+  <p class="mat-h1">Em construção....</p>
+
+</div>

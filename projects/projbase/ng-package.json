@@ -1,0 +1,25 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/mjbase",
+  "lib": {
+    "entryFile": "src/public-api.ts"
+  },
+  "assets": [
+    "assets/images/gov.br.png",
+    "assets/sass/_breadcumb.scss",
+    "assets/sass/_colors.scss",
+    "assets/sass/_layout.scss",
+    "assets/sass/_utilities.scss",
+    "assets/sass/_mat-button.scss",
+    "assets/sass/_mat-card.scss",
+    "assets/sass/_mat-date-picker.scss",
+    "assets/sass/_mat-dialog.scss",
+    "assets/sass/_mat-expansion-panel.scss",
+    "assets/sass/_mat-form-field.scss",
+    "assets/sass/_mat-icon.scss",
+    "assets/sass/_mat-radio.scss",
+    "assets/sass/_mat-table.scss",
+    "./node_modules/font-awesome/css/font-awesome.min.css",
+    "theme.scss"
+  ]
+}

@@ -1,0 +1,56 @@
+<mj-main-container #sidebar
+  [licenca]="'MJSP'"
+  [sistema]="'Projeto Base'"
+  [menus]="[
+    { icone: '', titulo: 'Introdução', menus: [
+      { icone: '', uri: 'sobre', titulo: 'Sobre' },
+      { icone: '', uri: 'como-comecar', titulo: 'Como começar' },
+      { icone: '', uri: 'consumindo-arquitetura', titulo: 'Consumindo a arquitetura' },
+    ] },
+    { icone: '', titulo: 'Componentes', menus: [
+      { icone: '', uri: '/componentes/accordion', titulo: 'Accordion' },
+      { icone: '', uri: '/componentes/avatar', titulo: 'Avatar' },
+      { icone: '', uri: '/componentes/breadcumb', titulo: 'Breadcumb' },
+      { icone: '', uri: '/componentes/button', titulo: 'Button' },
+      { icone: '', uri: '/componentes/card', titulo: 'Card' },
+      { icone: '', uri: '/componentes/data-table', titulo: 'Data Table' },
+      { icone: '', uri: '/componentes/date-time-picker', titulo: 'Data Time Picker' },
+      { icone: '', uri: '/componentes/input', titulo: 'Input' },
+      { icone: '', uri: '/componentes/input-file', titulo: 'File Upload' },
+      { icone: '', uri: '/componentes/modal', titulo: 'Modal' },
+      { icone: '', uri: '/componentes/radio-button', titulo: 'Radio Button' },
+      { icone: '', uri: '/componentes/select', titulo: 'Select' }
+    ] },
+    { icone: '', uri: 'sso', titulo: 'SSO' }
+  ]"
+  (scrollTop)="scrollPage($event)"
+>
+  <mj-navbar
+    [secretaria]="'Exemplo de utilização da Arquitetura de Referência - Angular'"
+    [sistema]="'Projeto Base'"
+    [versao]="'Frontend - 0.0.1'"
+    [label]="'local'"
+    [versoes]="[
+      { icone: 'dns', versao: '1.0.0-RC-48-04', label: 'local' },
+      { icone: 'backup_table', versao: '1.0.0-RC-37-03', label: 'local' }
+    ]"
+    [shrink]="navbarShrink"
+    [notificacao]="{
+      total: 2,
+      menus: [
+        { uri: 'componentes/notificacoes', titulo: 'Ver todas notificações' },
+      ]
+    }"
+    [logado]="logado"
+    [usuario]="usuarioLogado"
+    (abrirMenu)="abrirMenu()"
+    (login)="login()"
+    (logoff)="logoff()"
+  ></mj-navbar>
+
+  <div class="mj-grid-container">
+    <router-outlet></router-outlet>
+  </div>
+
+  <mj-footer [licenca]="'Ministério da Justiça e Segurança Pública - Todos os direitos reservados'"></mj-footer>
+</mj-main-container>
