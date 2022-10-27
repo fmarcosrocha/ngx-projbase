@@ -1,0 +1,42 @@
+mat-form-field.mat-form-field {
+  .mat-form-field-subscript-wrapper {
+    padding: 0 !important;
+    position: relative !important;
+  }
+
+  mat-error {
+    background-color: red;
+    padding: 4px 7px;
+    color: white;
+    font-size: 14px;
+    font-style: italic;
+  }
+
+  .mat-form-field-suffix {
+    top: 0.3em !important;
+
+    button {
+      height: 1.5em !important;
+      width: 1.5em !important;
+    }
+  }
+}
+
+.mat-form-field-label-out {
+  .mat-form-field-infix {
+    border-top: 0.2em solid transparent;
+  }
+
+  .mat-select-arrow-wrapper {
+    display: flex;
+  }
+}
+
+.mat-form-field-infix {
+  padding: 8px 0 8px 0 !important;
+  line-height: 1.5 !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: rgba(0, 0, 0, 0.38);
+}

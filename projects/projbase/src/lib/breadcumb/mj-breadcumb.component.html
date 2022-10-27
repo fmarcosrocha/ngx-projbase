@@ -1,0 +1,41 @@
+<div>
+    <mat-list role="list" class="inline-list" *ngIf="!isSmallScreen">
+        <mat-list-item role="listitem">
+            <button mat-button mat-icon-button color="primary" style="margin-left: -10px;" routerLink="/">
+                <i class="fa fa-home" aria-hidden="true"></i>
+            </button>
+        </mat-list-item>
+
+        <ng-container *ngFor="let breadcrumb of (breadcrumbs$ | async)">
+            <mat-list-item role="listitem">
+                <mat-icon matListIcon>chevron_right</mat-icon>
+            </mat-list-item>
+
+            <mat-list-item role="listitem">
+                <button mat-button color="primary" class="mat-caption" routerLink="{{breadcrumb.rota}}">
+                    {{ breadcrumb.label }}
+                </button>
+            </mat-list-item>
+        </ng-container>
+    </mat-list>
+
+    <mat-list role="list" class="inline-list" *ngIf="isSmallScreen">
+        <mat-list-item role="listitem">
+            <button mat-button mat-icon-button color="primary" style="margin-left: -10px;" aria-label="Menu"
+                [matMenuTriggerFor]="menu">
+                <mat-icon>create_new_folder</mat-icon>
+            </button>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+            <mat-icon matListIcon>chevron_right</mat-icon>
+        </mat-list-item>
+        <mat-list-item role="listitem">Página atual</mat-list-item>
+    </mat-list>
+
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/">Página inicial</button>
+        <ng-container *ngFor="let breadcrumb of (breadcrumbs$ | async)">
+            <button mat-menu-item routerLink="{{breadcrumb.rota}}">{{ breadcrumb.label }}</button>
+        </ng-container>
+    </mat-menu>
+</div>

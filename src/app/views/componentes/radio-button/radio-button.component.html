@@ -1,0 +1,35 @@
+<h1>Radio Button</h1>
+<p>O componente Radio permite selecionar apenas uma opção em uma lista de opções.</p>
+
+<mat-tab-group mat-align-tabs="start">
+  <mat-tab label="Preview">
+    <div class="p-3">
+
+      <mat-radio-group color="primary" class="mat-radio-column" [(ngModel)]="item">
+        <mat-radio-button class="example-radio-button" *ngFor="let elemento of itens" [value]="elemento">
+          {{ elemento }}
+        </mat-radio-button>
+      </mat-radio-group>
+
+    </div>
+  </mat-tab>
+  <mat-tab label="Html">
+<code>
+<pre>
+&lt;mat-radio-group color="primary" class="mat-radio-column" [(ngModel)]="item"&gt;
+  &lt;mat-radio-button class="example-radio-button" *ngFor="let elemento of itens" [value]="elemento"&gt;
+    {{ '{{' }} elemento {{ '}}' }}
+  &lt;/mat-radio-button&gt;
+&lt;/mat-radio-group&gt;
+</pre>
+</code>
+  </mat-tab>
+  <mat-tab label="TS">
+<code>
+<pre>
+item?: string;
+itens: string[] = ['Angular', 'React', 'Vuejs'];
+</pre>
+</code>
+  </mat-tab>
+</mat-tab-group>

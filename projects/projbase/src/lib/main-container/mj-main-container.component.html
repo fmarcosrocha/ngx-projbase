@@ -1,0 +1,67 @@
+<mat-sidenav-container class="mj-main-container">
+  <mat-sidenav #drawer 
+    class="mj-sidenav"
+    fixedInViewport="false"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="'over'"
+    [opened]="false">
+    <div style="display: flex; flex-direction: column; overflow: hidden; height: 100%;">
+      <div style="display: flex; align-items: center; border-bottom: 1px solid #0000001f;">
+        <button mat-button mat-icon-button color="primary" class="ml-3" aria-label="Fechar menu"
+          (click)="drawer.toggle()">
+          <mat-icon class="primary">close</mat-icon>
+        </button>
+        <img src="./assets/images/gov.br.png" style="margin: 8px 0 8px 10px;" />
+      </div>
+      <div style="height: 100%; overflow-y: auto; overflow-x: hidden;">
+        <mat-nav-list>
+          <ng-container *ngFor="let item of menus">
+            <ng-container *ngIf="!item.menus || (item.menus && item.menus.length == 0); then semSubMenu; else comSubMenu;"></ng-container>
+            <ng-template #semSubMenu>
+              <a mat-list-item [routerLink]="item.uri" (click)="drawer.toggle()">
+                <mat-icon *ngIf="item.icone" class="mr-3">{{ item.icone }}</mat-icon>
+                {{ item.titulo }}
+              </a>
+            </ng-template>
+            <ng-template #comSubMenu>
+              <mat-accordion>
+                <mat-expansion-panel class="mat-elevation-z0"><!-- (opened)="panelOpenState = true" (closed)="panelOpenState = false"-->
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <mat-icon *ngIf="item.icone" class="mr-3">{{ item.icone }}</mat-icon>
+                      {{ item.titulo }}
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+
+                  <mat-nav-list>
+                    <ng-container *ngFor="let subitem of item.menus">
+                      <a class="mat-sub-item" mat-list-item [routerLink]="subitem.uri" (click)="drawer.toggle()">
+                        <mat-icon *ngIf="subitem.icone" class="mr-3">{{ subitem.icone }}</mat-icon>
+                        {{ subitem.titulo }}
+                      </a>
+                    </ng-container>
+                  </mat-nav-list>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </ng-template>
+          </ng-container>
+          
+        </mat-nav-list>
+      </div>
+      <div>
+        <mat-toolbar>
+          <mat-toolbar-row style="height: 45px; border-top: 1px solid #0000001f; background-color: #fff;">
+            <span><strong>{{ sistema }}</strong></span>
+          </mat-toolbar-row>
+          <mat-toolbar-row
+            style="justify-content: center; height: 55px; border-top: 1px solid #0000001f; background-color: #fff; text-align: center;">
+            <span><small>{{ licenca }}</small></span>
+          </mat-toolbar-row>
+        </mat-toolbar>
+      </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content #mjMainContent (scroll)="onScroll($event)">
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
