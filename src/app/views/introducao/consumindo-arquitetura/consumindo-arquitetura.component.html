@@ -91,8 +91,8 @@ import {{'{'}} ProjBaseModule {{'}'}} from 'projbase';
 <p>Em seu app.component.html, importe conforme:</p>
 <code>
 <pre>
-&lt;mj-main-container #sidebar
-  [licenca]="'MJSP'"
+&lt;lib-main-container #sidebar
+  [licenca]="'ORG. LTDA'"
   [sistema]="'Projeto Base'"
   [menus]="[
     {{'{'}} icone: '', titulo: 'Introdução', menus: [
@@ -115,7 +115,7 @@ import {{'{'}} ProjBaseModule {{'}'}} from 'projbase';
   ]"
   (scrollTop)="scrollPage($event)"
 &gt;
-  &lt;mj-navbar
+  &lt;lib-navbar
     [secretaria]="'Exemplo de utilização da Arquitetura de Referência - Angular'"
     [sistema]="'Projeto Base'"
     [versao]="app.name + ' - ' + app.version"
@@ -136,14 +136,14 @@ import {{'{'}} ProjBaseModule {{'}'}} from 'projbase';
     (abrirMenu)="abrirMenu()"
     (login)="login()"
     (logoff)="logout()"
-  &gt;&lt;/mj-navbar&gt;
+  &gt;&lt;/lib-navbar&gt;
 
   &lt;div class="mj-grid-container"&gt;
     &lt;router-outlet&gt;&lt;/router-outlet&gt;
   &lt;/div&gt;
 
-  &lt;mj-footer [licenca]="'Todos os direitos reservados'"&gt;&lt;/mj-footer&gt;
-&lt;/mj-main-container&gt;
+  &lt;mj-footer [licenca]="'Todos os direitos reservados.'"&gt;&lt;/mj-footer&gt;
+&lt;/lib-main-container&gt;
 </pre>
 </code>
 
@@ -166,7 +166,7 @@ public scrollPage (evt: number) {{'{'}}
     this.navbarShrink = false;
   {{'}'}}
 {{'}'}}
-@ViewChild('sidebar', {{'{'}} static: false {{'}'}}) sidebarRef!: MjMainContainerComponent;
+@ViewChild('sidebar', {{'{'}} static: false {{'}'}}) sidebarRef!: MainContainerComponent;
 
 
  usuarioLogado = {{'{'}}

@@ -1,5 +1,5 @@
-<mj-main-container #sidebar
-  [licenca]="'MJSP'"
+<lib-main-container #sidebar
+  [licenca]="'ORG. LTDA'"
   [sistema]="'Projeto Base'"
   [menus]="[
     { icone: '', titulo: 'Introdução', menus: [
@@ -25,7 +25,7 @@
   ]"
   (scrollTop)="scrollPage($event)"
 >
-  <mj-navbar
+  <lib-navbar
     [secretaria]="'Unidade / Setor dentro da Organização'"
     [sistema]="'Informação sobre o Sistema'"
     [versao]="'Frontend - 0.0.1'"
@@ -46,11 +46,11 @@
     (abrirMenu)="abrirMenu()"
     (login)="login()"
     (logoff)="logoff()"
-  ></mj-navbar>
+  ></lib-navbar>
 
   <div class="mj-grid-container">
     <router-outlet></router-outlet>
   </div>
 
-  <mj-footer [licenca]="'Todos os direitos reservados'"></mj-footer>
-</mj-main-container>
+  <mj-footer [licenca]="'Todos os direitos reservados.'"></mj-footer>
+</lib-main-container>

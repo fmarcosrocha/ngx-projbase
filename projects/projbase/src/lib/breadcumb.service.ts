@@ -11,7 +11,7 @@ export class Breadcrumb {
 @Injectable({
   providedIn: 'root',
 })
-export class MjBreadcrumbService {
+export class BreadcrumbService {
   private readonly _breadcrumbs$ = new BehaviorSubject<Breadcrumb[]>([]);
   readonly breadcrumbs$ = this._breadcrumbs$.asObservable();
 
@@ -20,7 +20,7 @@ export class MjBreadcrumbService {
       .pipe(
         filter((event) => event instanceof NavigationEnd)
       )
-      .subscribe((event) => {
+      .subscribe(() => {
         const root = this.router.routerState.snapshot.root;
         const breadcrumbs: Breadcrumb[] = [];
         this.addBreadcrumb(root, breadcrumbs);
@@ -31,7 +31,7 @@ export class MjBreadcrumbService {
   private addBreadcrumb(
     route: ActivatedRouteSnapshot,
     breadcrumbs: Breadcrumb[]
-  ) {
+  ): void {
     if (route) {
       if (route.data.breadcrumb) {
         const breadcrumb = {
@@ -47,7 +47,7 @@ export class MjBreadcrumbService {
     }
   }
 
-  public getLabel(data: Data) {
+  public getLabel(data: Data): any {
     // The breadcrumb can be defined as a static string or as a function to construct the breadcrumb element out of the route data
     return typeof data.breadcrumb === 'function'
       ? data.breadcrumb(data)

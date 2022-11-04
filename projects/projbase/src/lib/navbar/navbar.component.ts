@@ -2,10 +2,10 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'mj-navbar',
-  templateUrl: './mj-navbar.component.html'
+  selector: 'lib-navbar',
+  templateUrl: './navbar.component.html'
 })
-export class MjNavbarComponent {
+export class NavbarComponent {
   constructor(private breakpointObserver: BreakpointObserver) {
     this.breakpointObserver.observe(['(orientation: portrait)', '(orientation: landscape)',]).subscribe(result => {
       this.isSmallScreen = breakpointObserver.isMatched('(max-width: 599px)');
@@ -15,7 +15,7 @@ export class MjNavbarComponent {
   public isSmallScreen = false;
   @Input() shrink = false;
   @Input() secretaria = 'Secretaria de Operações Integradas';
-  @Input() sistema = 'MJSP';
+  @Input() sistema = 'ORG. LTDA';
   @Input() versao = '0.0.0';
   @Input() label = '';
   @Input() versoes: any[] = [];

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
-import { Breadcrumb, MjBreadcrumbService } from '../mjbreadcumb.service';
+import { Breadcrumb, BreadcrumbService } from '../breadcumb.service';
 
 @Component({
   selector: 'mj-breadcumb',
@@ -10,7 +10,7 @@ import { Breadcrumb, MjBreadcrumbService } from '../mjbreadcumb.service';
 
 export class MjBreadcumbComponent {
   constructor(
-    private _breadcrumbService: MjBreadcrumbService,
+    private _breadcrumbService: BreadcrumbService,
     private _breakpointObserver: BreakpointObserver) {
 
     this.breadcrumbs$ = _breadcrumbService.breadcrumbs$;

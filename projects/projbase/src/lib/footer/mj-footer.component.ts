@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 export class MjFooterComponent {
   constructor() { }
 
-  @Input() licenca: string = `MJSP - ${new Date().getFullYear()}`;
-  @Input() licencaMobile: string = `MJSP - ${new Date().getFullYear()}`;
+  @Input() licenca = `ORG. LTDA - ${new Date().getFullYear()}`;
+  @Input() licencaMobile = `ORG. LTDA - ${new Date().getFullYear()}`;
 }

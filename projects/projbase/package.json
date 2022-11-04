@@ -11,6 +11,6 @@
     "tslib": "^2.0.0"
   },
   "publishConfig": {
-    "registry": "https://artifact.mj.gov.br/repository/npm-private/"
+    "registry": "https://artifact.path.to.host.to/repository/npm-private/"
   }
 }
