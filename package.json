@@ -1,12 +1,12 @@
 {
-  "name": "identidade-visual-angular-material",
+  "name": "projbase-material-app",
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4200",
     "build": "ng build",
-    "build:library": "ng build mjbase",
-    "pack:library": "npm pack ./dist/mjbase",
+    "build:library": "ng build projbase",
+    "pack:library": "npm pack ./dist/projbase",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

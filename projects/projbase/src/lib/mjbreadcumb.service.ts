@@ -1,11 +1,11 @@
-import { ActivatedRouteSnapshot, Data, NavigationEnd, Router } from "@angular/router";
-import { BehaviorSubject } from "rxjs";
-import { filter } from "rxjs/operators";
-import { Injectable } from "@angular/core";
+import { ActivatedRouteSnapshot, Data, NavigationEnd, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { filter } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
 
 export class Breadcrumb {
   label?: string;
-  rota?: string
+  rota?: string;
 }
 
 @Injectable({
@@ -36,7 +36,7 @@ export class MjBreadcrumbService {
       if (route.data.breadcrumb) {
         const breadcrumb = {
           label: this.getLabel(route.data),
-          rota: route.data.rota ? route.data.rota : ""
+          rota: route.data.rota ? route.data.rota : ''
         } as Breadcrumb;
         breadcrumbs.push(breadcrumb);
       }
@@ -47,7 +47,7 @@ export class MjBreadcrumbService {
     }
   }
 
-  private getLabel(data: Data) {
+  public getLabel(data: Data) {
     // The breadcrumb can be defined as a static string or as a function to construct the breadcrumb element out of the route data
     return typeof data.breadcrumb === 'function'
       ? data.breadcrumb(data)

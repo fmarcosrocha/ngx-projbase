@@ -1,5 +1,5 @@
 /*
- * Public API Surface of mjbase
+ * Public API Surface of projbase
  */
 
 export * from './lib/mjbreadcumb.service';
@@ -8,4 +8,4 @@ export * from './lib/footer/mj-footer.component';
 export * from './lib/navbar/mj-navbar.component';
 export * from './lib/breadcumb/mj-breadcumb.component';
 export * from './lib/file-drop-directive/mj-file-drop.directive';
-export * from './lib/mjbase.module';
+export * from './lib/proj-base.module';

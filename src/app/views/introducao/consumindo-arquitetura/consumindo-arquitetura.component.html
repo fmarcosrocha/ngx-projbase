@@ -6,10 +6,10 @@
 
 <p class="mat-subheading-2"><strong>Ajustes iniciais em seu projeto</strong></p>
 
-<p>Ajuste seu projeto para ter os seguintes itens, nas estrutura abaixo:</p>
+<p>Ajuste seu projeto para ter os seguintes itens, na estrutura abaixo:</p>
 
 <ul>
-  <li>src/assets/images/gov.br.png <strong>(essa imagem pode ser copiada da arquitetura base, está em:
+  <li>src/assets/images/logo.png <strong>(essa imagem pode ser copiada da arquitetura base, está em:
       projects/assets/images)</strong></li>
   <li>src/styles.scss</li>
 </ul>
@@ -40,12 +40,12 @@
 </code>
 
 <p class="mat-subheading-2"><strong>Instalando a arquitetura base em seu projeto</strong></p>
-<p>Copie o arquivo .tgz (<a href="./assets/mjbase-0.0.35.tgz" target="_blank">mjbase-*.tgz</a>) compilado para o diretório raiz do seu projeto</p>
+<p>Copie o arquivo .tgz (<a href="./assets/projbase-0.0.35.tgz" target="_blank">projbase-*.tgz</a>) compilado para o diretório raiz do seu projeto</p>
 
 <p>Efetue a instalação da lib (trocar onde está * pelo número da versão no arquivo)</p>
 <code>
 <pre>
-npm install mjbase-*.tgz
+npm install projbase-*.tgz
 </pre>
 </code>
 
@@ -53,7 +53,7 @@ npm install mjbase-*.tgz
 <p>No seu styles.scss, importar o sass do tema e ajustar a fonte base da aplicação, conforme:</p>
 <code>
 <pre>
-@import '../node_modules/mjbase/theme.scss';
+@import '../node_modules/projbase/theme.scss';
 
 html, body {{'{'}}
   height: 100%;
@@ -71,13 +71,13 @@ body {{'{'}}
 <code>
 <pre>
 ...
-import {{'{'}} MjbaseModule {{'}'}} from 'mjbase';
+import {{'{'}} ProjBaseModule {{'}'}} from 'projbase';
 
 @NgModule({{'{'}}
     ...
     imports: [
         ...
-        MjbaseModule
+        ProjBaseModule
     ]
 {{'}'}})
 </pre>
@@ -142,7 +142,7 @@ import {{'{'}} MjbaseModule {{'}'}} from 'mjbase';
     &lt;router-outlet&gt;&lt;/router-outlet&gt;
   &lt;/div&gt;
 
-  &lt;mj-footer [licenca]="'Ministério da Justiça e Segurança Pública - Todos os direitos reservados'"&gt;&lt;/mj-footer&gt;
+  &lt;mj-footer [licenca]="'Todos os direitos reservados'"&gt;&lt;/mj-footer&gt;
 &lt;/mj-main-container&gt;
 </pre>
 </code>

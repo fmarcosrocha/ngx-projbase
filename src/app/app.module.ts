@@ -27,9 +27,9 @@ import {
 } from 'app/views';
 import { MaterialModule } from 'app/components';
 /* em desenvolvimento pode usar assim, para nao precisar efetuar o build da lib */
-import { MjbaseModule } from '../../projects/projbase/src/public-api';
+import { ProjBaseModule } from '../../projects/projbase/src/public-api';
 /* em build da lib, fazer assim... */
-// import { MjbaseModule } from 'projbase';
+// import { ProjBaseModule } from 'projbase';
 
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -68,14 +68,14 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     AppRouting,
     BrowserAnimationsModule,
     MaterialModule,
-    MjbaseModule,
+    ProjBaseModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MjbaseModule
+    ProjBaseModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },

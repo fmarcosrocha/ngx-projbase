@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MjbaseRouting } from './mjbase.routing';
+import { ProjBaseRouting } from './proj-base-routing.module';
 import { MjMainContainerComponent } from './main-container/mj-main-container.component';
 import { MjNavbarComponent } from './navbar/mj-navbar.component';
 import { MjFooterComponent } from './footer/mj-footer.component';
@@ -28,7 +28,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MjBreadcrumbService } from './mjbreadcumb.service';
 
 const materialComponentes = [
-  MjbaseRouting,
+  ProjBaseRouting,
   CommonModule,
   MatToolbarModule,
   MatIconModule,
@@ -69,4 +69,4 @@ const materialComponentes = [
     MjBreadcrumbService
   ]
 })
-export class MjbaseModule { }
+export class ProjBaseModule { }

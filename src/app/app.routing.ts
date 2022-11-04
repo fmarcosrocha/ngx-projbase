@@ -30,7 +30,7 @@ const routes: Routes = [
     { path: 'accordion', component: AccordionComponent },
     { path: 'avatar', component: AvatarComponent },
     { path: 'button', component: ButtonComponent },
-    { path: 'breadcumb', component: BreadcumbComponent, data: { breadcrumb: 'Breadcumb', rota: "/componentes/breadcumb" } },
+    { path: 'breadcumb', component: BreadcumbComponent, data: { breadcrumb: 'Breadcumb', rota: '/componentes/breadcumb' } },
     { path: 'card', component: CardComponent },
     { path: 'data-table', component: DatatableComponent },
     { path: 'date-time-picker', component: DateTimePickerComponent },

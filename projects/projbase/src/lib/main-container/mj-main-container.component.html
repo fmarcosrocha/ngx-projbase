@@ -1,5 +1,5 @@
 <mat-sidenav-container class="mj-main-container">
-  <mat-sidenav #drawer 
+  <mat-sidenav #drawer
     class="mj-sidenav"
     fixedInViewport="false"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
@@ -11,7 +11,7 @@
           (click)="drawer.toggle()">
           <mat-icon class="primary">close</mat-icon>
         </button>
-        <img src="./assets/images/gov.br.png" style="margin: 8px 0 8px 10px;" />
+        <img src="./assets/images/logo.png" style="margin: 8px 0 8px 10px;" />
       </div>
       <div style="height: 100%; overflow-y: auto; overflow-x: hidden;">
         <mat-nav-list>
@@ -45,7 +45,7 @@
               </mat-accordion>
             </ng-template>
           </ng-container>
-          
+
         </mat-nav-list>
       </div>
       <div>

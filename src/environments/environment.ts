@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  ssoUrl: 'https://dsv.sso.mj.gov.br/auth',
+  ssoUrl: 'https://dsv.host.com/auth',
   ssoClientId: 'projetobase',
-  ssoRealm: 'MJ'
+  ssoRealm: 'PBASE'
 };
 
 /*

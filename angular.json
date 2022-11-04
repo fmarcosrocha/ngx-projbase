@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "identidade-visual-angular-material": {
+    "projbase-material-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/identidade-visual-angular-material",
+            "outputPath": "dist/projbase-material-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,18 +72,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "identidade-visual-angular-material:build"
+            "browserTarget": "projbase-material-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "identidade-visual-angular-material:build:production"
+              "browserTarget": "projbase-material-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "identidade-visual-angular-material:build"
+            "browserTarget": "projbase-material-app:build"
           }
         },
         "test": {
@@ -120,17 +120,17 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "identidade-visual-angular-material:serve"
+            "devServerTarget": "projbase-material-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "identidade-visual-angular-material:serve:production"
+              "devServerTarget": "projbase-material-app:serve:production"
             }
           }
         }
       }
     },
-    "mjbase": {
+    "projbase": {
       "projectType": "library",
       "root": "projects/projbase",
       "sourceRoot": "projects/projbase/src",
@@ -171,5 +171,5 @@
       }
     }
   },
-  "defaultProject": "identidade-visual-angular-material"
+  "defaultProject": "projbase-material-app"
 }

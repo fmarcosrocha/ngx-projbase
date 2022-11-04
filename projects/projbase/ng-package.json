@@ -1,11 +1,11 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/mjbase",
+  "dest": "../../dist/projbase",
   "lib": {
     "entryFile": "src/public-api.ts"
   },
   "assets": [
-    "assets/images/gov.br.png",
+    "assets/images/logo.png",
     "assets/sass/_breadcumb.scss",
     "assets/sass/_colors.scss",
     "assets/sass/_layout.scss",

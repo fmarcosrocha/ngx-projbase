@@ -12,19 +12,19 @@ export class MjNavbarComponent {
     });
   }
 
-  public isSmallScreen: boolean = false;
+  public isSmallScreen = false;
   @Input() shrink = false;
-  @Input() secretaria: string = 'Secretaria de Operações Integradas';
-  @Input() sistema: string = 'MJSP';
-  @Input() versao: string = '0.0.0';
-  @Input() label: string = '';
+  @Input() secretaria = 'Secretaria de Operações Integradas';
+  @Input() sistema = 'MJSP';
+  @Input() versao = '0.0.0';
+  @Input() label = '';
   @Input() versoes: any[] = [];
   @Input() notificacao: any = {};
-  @Input() logado: boolean = false;
+  @Input() logado = false;
   @Input() exibirRoles = false;
   @Input() usuario: any = null;
-  @Input() exibirLogin: boolean = true;
-  @Input() exibirMenu: boolean = true;
+  @Input() exibirLogin = true;
+  @Input() exibirMenu = true;
 
   @Output() abrirMenu = new EventEmitter();
   @Output() login = new EventEmitter();
