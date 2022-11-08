@@ -1,11 +1,11 @@
-<mat-toolbar class="mat-elevation-z4 mat-white mj-toolbar-top">
+<mat-toolbar class="mat-elevation-z4 mat-white lib-toolbar-top">
   <mat-toolbar-row style="height: 60px;" [ngClass]="{ 'nav-shrink' : shrink }">
     <img alt="" class="img-title" src="./assets/images/logo.png" />
     <mat-divider [vertical]="true" style="margin: 2px 16px; height: 70%;"></mat-divider>
     <div class="navbar-title" *ngIf="!isSmallScreen">
       Título Principal
     </div>
-    <span class="mj-spacer"></span>
+    <span class="lib-spacer"></span>
 
     <ng-container *ngIf="notificacao && notificacao.total > 0">
       <button mat-button mat-icon-button color="primary" class="mr-3" aria-label="Notificações" [matMenuTriggerFor]="menuNotificacao">
@@ -218,6 +218,6 @@
       <p class="ma-0 mat-subheading-1 overflow-text-ellipsis">{{ secretaria }}</p>
       <p class="ma-0 mat-subheading-1 overflow-text-ellipsis">{{ sistema }}</p>
     </div>
-    <span class="mj-spacer"></span>
+    <span class="lib-spacer"></span>
   </mat-toolbar-row>
 </mat-toolbar>

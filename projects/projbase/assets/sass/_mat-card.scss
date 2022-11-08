@@ -17,6 +17,6 @@ $mat-card-header-size: 40px !default;
 
 .mat-card {
   .mat-card-title {
-    color: map-get($mj-palette-primary, 700);
+    color: map-get($lib-palette-primary, 700);
   }
 }

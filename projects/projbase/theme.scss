@@ -62,7 +62,7 @@ $general-typography: mat-typography-config(
 // Be sure that you only ever include this mixin once!
 @include mat-core($general-typography);
 
-$mj-palette-primary: (
+$lib-palette-primary: (
   50: #fff,
   100: #e5edfa,
   200: #e3edfd,
@@ -87,7 +87,7 @@ $mj-palette-primary: (
   ),
 );
 
-$mj-palette-warn: (
+$lib-palette-warn: (
   50: #ce0000,
   100: #e60000,
   /* cor do estaleiro */ 200: #f41605,
@@ -112,7 +112,7 @@ $mj-palette-warn: (
   ),
 );
 
-$mj-palette-accent: (
+$lib-palette-accent: (
   50: #fae6f3,
   100: #f3bfe2,
   200: #ef96cf,
@@ -137,7 +137,7 @@ $mj-palette-accent: (
   ),
 );
 
-$mj-palette-success: (
+$lib-palette-success: (
   50: #e4f8ed,
   100: #bcefd2,
   200: #8fe4b5,
@@ -170,7 +170,7 @@ $mj-palette-success: (
   ),
 );
 
-$mj-palette-input: (
+$lib-palette-input: (
   50: #e4f8ed,
   100: #bcefd2,
   200: #8fe4b5,
@@ -206,10 +206,10 @@ $mj-palette-input: (
 $angular-arq-theme: mat-light-theme(
   (
     color: (
-      primary: mat-palette($mj-palette-primary, 700),
-      accent: mat-palette($mj-palette-accent, 800),
-      warn: mat-palette($mj-palette-warn),
-      success: mat-palette($mj-palette-success, 400),
+      primary: mat-palette($lib-palette-primary, 700),
+      accent: mat-palette($lib-palette-accent, 800),
+      warn: mat-palette($lib-palette-warn),
+      success: mat-palette($lib-palette-success, 400),
     ),
   )
 );

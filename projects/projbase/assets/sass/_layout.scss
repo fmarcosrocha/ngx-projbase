@@ -1,4 +1,4 @@
-.mj-toolbar-top {
+.lib-toolbar-top {
   /*position: fixed;
   top: 0;
   background-color: #fff;
@@ -41,7 +41,7 @@
   }
 }
 
-.mj-sidenav {
+.lib-sidenav {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,14 +98,14 @@
   height: 100%;
 }
 
-.mj-grid-container {
+.lib-grid-container {
   /*padding: 150px 16px 16px 16px;*/
   padding: 16px;
   background: #fff;
   min-height: calc(100vh - 221px);
 }
 
-.mj-footer {
+.lib-footer {
   background-color: #071d41;
   justify-content: center;
   color: white;
@@ -113,7 +113,7 @@
   align-items: center;
 }
 
-.mj-spacer {
+.lib-spacer {
   flex: 1 1 auto;
 }
 

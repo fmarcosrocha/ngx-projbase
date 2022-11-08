@@ -1,10 +1,10 @@
 .mat-calendar-body-cell-content,
 .mat-date-range-input-separator {
-  color: map-get($mj-palette-primary, 600);
+  color: map-get($lib-palette-primary, 600);
 }
 
 .mat-calendar-body-selected {
-  background-color: map-get($mj-palette-primary, 600);
+  background-color: map-get($lib-palette-primary, 600);
   color: #fff;
 }
 
@@ -31,5 +31,5 @@
 }
 
 .mat-calendar-controls {
-  color: map-get($mj-palette-primary, 600);
+  color: map-get($lib-palette-primary, 600);
 }

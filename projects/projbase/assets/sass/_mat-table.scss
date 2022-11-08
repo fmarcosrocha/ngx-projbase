@@ -4,7 +4,7 @@
   }
 
   mat-header-cell {
-    color: map-get($mj-palette-primary, 700);
+    color: map-get($lib-palette-primary, 700);
     font-size: 14px;
   }
 }
@@ -58,7 +58,7 @@
     float: left;
     text-transform: uppercase;
     font-weight: normal;
-    color: map-get($mj-palette-primary, 700);
+    color: map-get($lib-palette-primary, 700);
     font-size: 0.85em;
     margin-right: 10px;
     margin-top: 2px;

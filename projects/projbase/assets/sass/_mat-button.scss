@@ -1,5 +1,5 @@
 .mat-button .mat-button-focus-overlay {
-  background-color: map-get($mj-palette-primary, 600);
+  background-color: map-get($lib-palette-primary, 600);
 }
 
 button.rounded {
@@ -13,7 +13,7 @@ button.rounded {
 
 .mat-button-upload {
   margin-top: 5px;
-  
+
   button {
     border: 1px dashed #1351b4!important;
     height: 40px!important;

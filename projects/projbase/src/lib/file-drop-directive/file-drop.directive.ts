@@ -1,12 +1,12 @@
 import { Directive, HostListener, Output, EventEmitter, HostBinding } from "@angular/core";
 
 @Directive({
-  selector: "[mjFileDrop]"
+  selector: "[libFileDrop]"
 })
 
-export class MjFileDropDirective {
+export class FileDropDirective {
   @Output() files: EventEmitter<any[]> = new EventEmitter();
-  
+
   @HostBinding("style.background") private background = "#fff";
   @HostListener("dragover", ["$event"]) public onDragOver(evt: DragEvent) {
     evt.preventDefault();

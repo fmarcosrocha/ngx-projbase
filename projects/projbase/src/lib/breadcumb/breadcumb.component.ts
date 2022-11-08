@@ -4,11 +4,11 @@ import { Observable } from 'rxjs';
 import { Breadcrumb, BreadcrumbService } from '../breadcumb.service';
 
 @Component({
-  selector: 'mj-breadcumb',
-  templateUrl: './mj-breadcumb.component.html'
+  selector: 'lib-breadcumb',
+  templateUrl: './breadcumb.component.html'
 })
 
-export class MjBreadcumbComponent {
+export class BreadcumbComponent {
   constructor(
     private _breadcrumbService: BreadcrumbService,
     private _breakpointObserver: BreakpointObserver) {

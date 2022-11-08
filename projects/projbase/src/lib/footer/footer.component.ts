@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'mj-footer',
-  templateUrl: './mj-footer.component.html'
+  selector: 'lib-footer',
+  templateUrl: './footer.component.html'
 })
-export class MjFooterComponent {
+export class FooterComponent {
   constructor() { }
 
   @Input() licenca = `ORG. LTDA - ${new Date().getFullYear()}`;

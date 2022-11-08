@@ -4,9 +4,9 @@ import { CommonModule } from '@angular/common';
 import { ProjBaseRouting } from './proj-base-routing.module';
 import { MainContainerComponent } from './main-container/main-container.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { MjFooterComponent } from './footer/mj-footer.component';
-import { MjBreadcumbComponent } from './breadcumb/mj-breadcumb.component';
-import { MjFileDropDirective } from './file-drop-directive/mj-file-drop.directive';
+import { FooterComponent } from './footer/footer.component';
+import { BreadcumbComponent } from './breadcumb/breadcumb.component';
+import { FileDropDirective } from './file-drop-directive/file-drop.directive';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -53,17 +53,17 @@ const materialComponentes = [
   declarations: [
     MainContainerComponent,
     NavbarComponent,
-    MjFooterComponent,
-    MjBreadcumbComponent,
-    MjFileDropDirective
+    FooterComponent,
+    BreadcumbComponent,
+    FileDropDirective
   ],
   imports: materialComponentes,
   exports: [
     MainContainerComponent,
     NavbarComponent,
-    MjFooterComponent,
-    MjBreadcumbComponent,
-    MjFileDropDirective
+    FooterComponent,
+    BreadcumbComponent,
+    FileDropDirective
   ],
   providers: [
     BreadcrumbService

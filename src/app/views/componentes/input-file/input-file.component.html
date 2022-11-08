@@ -16,14 +16,14 @@
 <mat-tab-group mat-align-tabs="start">
   <mat-tab label="Preview">
     <div class="p-3">
-      
+
       <div style="max-width: 600px;">
 
         <form class="submit-form">
           <mat-label>Exemplo de upload</mat-label>
           <div class="mat-button-upload">
             <input hidden type="file" #inputFileUpload (change)="uploadCtrl.upload($event)"/>
-            <button class="w-100" mat-stroked-button color="primary" (click)="inputFileUpload.click()" mjFileDrop (files)="uploadCtrl.dropped($event)">
+            <button class="w-100" mat-stroked-button color="primary" (click)="inputFileUpload.click()" libFileDrop (files)="uploadCtrl.dropped($event)">
               <div class="d-flex">
                 <mat-icon class="mr-3">upload</mat-icon>
                 <span>Selecione o arquivo</span>
@@ -43,7 +43,7 @@
 &lt;mat-label&gt;Exemplo de upload&lt;/mat-label&gt;
 &lt;div class="mat-button-upload"&gt;
   &lt;input hidden type="file" #inputFileUpload (change)="uploadCtrl.upload($event)"/&gt;
-  &lt;button class="w-100" mat-stroked-button color="primary" (click)="inputFileUpload.click()" mjFileDrop (files)="uploadCtrl.dropped($event)"&gt;
+  &lt;button class="w-100" mat-stroked-button color="primary" (click)="inputFileUpload.click()" libFileDrop (files)="uploadCtrl.dropped($event)"&gt;
     &lt;div class="d-flex"&gt;
       &lt;mat-icon class="mr-3"&gt;upload&lt;/mat-icon&gt;
       &lt;span&gt;Selecione o arquivo&lt;/span&gt;
