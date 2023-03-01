@@ -1,6 +1,17 @@
 {
   "name": "projbase",
   "version": "0.0.1",
+  "description": "Projeto base para aplicações com Angular Material.",
+  "contributors": [
+    {
+      "name": "Marks Duarte",
+      "email": "contato@marksduarte.dev",
+      "url": "https://marksduarte.dev"
+    },
+    {
+      "name": "Leandro Santana"
+    }
+  ],
   "peerDependencies": {
     "@angular/common": "^11.2.14",
     "@angular/core": "^11.2.14",

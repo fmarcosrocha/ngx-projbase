@@ -29,11 +29,11 @@
         <mat-list-item role="listitem">
             <mat-icon matListIcon>chevron_right</mat-icon>
         </mat-list-item>
-        <mat-list-item role="listitem">Página atual</mat-list-item>
+        <mat-list-item role="listitem">Active Page</mat-list-item>
     </mat-list>
 
     <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/">Página inicial</button>
+        <button mat-menu-item routerLink="/">First Page</button>
         <ng-container *ngFor="let breadcrumb of (breadcrumbs$ | async)">
             <button mat-menu-item routerLink="{{breadcrumb.rota}}">{{ breadcrumb.label }}</button>
         </ng-container>

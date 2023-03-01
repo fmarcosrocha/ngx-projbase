@@ -7,6 +7,5 @@ import { Component, Input } from '@angular/core';
 export class FooterComponent {
   constructor() { }
 
-  @Input() licenca = `ORG. LTDA - ${new Date().getFullYear()}`;
-  @Input() licencaMobile = `ORG. LTDA - ${new Date().getFullYear()}`;
+  @Input() license = `ORG. LTDA - ${new Date().getFullYear()}`;
 }

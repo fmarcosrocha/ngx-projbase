@@ -21,16 +21,16 @@ export class MainContainerComponent {
   @Output() scrollTop = new EventEmitter();
 
   @ViewChild('drawer', { static: false }) sidenavRef!: any;
-  @ViewChild('mjMainContent', { static: false }) mjMainContent!: any;
+  @ViewChild('ProjBaseMainContent', { static: false }) ProjBaseMainContent!: any;
 
   @Input() menus: any[] = [];
-  @Input() sistema = 'Identidade visual';
-  @Input() licenca = `ORG. LTDA - ${new Date().getFullYear()}`;
+  @Input() systemName = 'System Name';
+  @Input() license = `ORG. LTDA - ${new Date().getFullYear()}`;
   public onScroll(evt: any): void {
     this.scrollTop.emit(evt.target.scrollTop);
   }
 
-  public abrirMenu(): void {
+  public openMenu(): void {
     this.sidenavRef.toggle();
   }
 }

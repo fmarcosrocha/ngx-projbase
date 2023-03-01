@@ -14,24 +14,26 @@ export class NavbarComponent {
 
   public isSmallScreen = false;
   @Input() shrink = false;
-  @Input() secretaria = 'Secretaria de Operações Integradas';
-  @Input() sistema = 'ORG. LTDA';
-  @Input() versao = '0.0.0';
-  @Input() label = '';
-  @Input() versoes: any[] = [];
-  @Input() notificacao: any = {};
-  @Input() logado = false;
-  @Input() exibirRoles = false;
-  @Input() usuario: any = null;
-  @Input() exibirLogin = true;
-  @Input() exibirMenu = true;
+  @Input() title = 'Title';
+  @Input() subTitle1 = 'Subtitle 1';
+  @Input() subTitle2 = 'Subtitle 2';
+  @Input() subTitle3 = 'Subtitle 3';
+  @Input() version = '0.0.0';
+  @Input() label = 'Label';
+  @Input() versions: any[] = [];
+  @Input() notification: any = {};
+  @Input() logged = false;
+  @Input() showRoles = false;
+  @Input() user: any = null;
+  @Input() showLogin = true;
+  @Input() showMenu = true;
 
-  @Output() abrirMenu = new EventEmitter();
+  @Output() openMenu = new EventEmitter();
   @Output() login = new EventEmitter();
   @Output() logoff = new EventEmitter();
 
   public getRoles(): string {
-    const roles = (this.usuario?.roles) ? this.usuario.roles.reduce((acc: any, r: any) => acc + ' | ' + r, '') : '';
+    const roles = (this.user?.roles) ? this.user.roles.reduce((acc: any, r: any) => acc + ' | ' + r, '') : '';
     return roles.slice(3);
   }
 
