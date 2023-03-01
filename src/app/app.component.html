@@ -1,7 +1,8 @@
 <lib-main-container #sidebar
-  [license]="'ORG. LTDA'"
-  [systemName]="'Projeto Base'"
-  [menus]="[
+                    [title]="'Título Principal'"
+                    [license]="'ORG. LTDA'"
+                    [systemName]="'Projeto Base'"
+                    [menus]="[
     { icon: '', title: 'Introdução', menus: [
       { icon: '', uri: 'sobre', title: 'Sobre' },
       { icon: '', uri: 'como-comecar', title: 'Como começar' },
@@ -23,11 +24,13 @@
     ] },
     { icon: '', uri: 'sso', title: 'SSO' }
   ]"
-  (scrollTop)="scrollPage($event)"
+                    (scrollTop)="scrollPage($event)"
 >
   <lib-navbar
-    [subTitle2]="'Unidade / Setor dentro da Organização'"
-    [subTitle3]="'Informação sobre o Sistema'"
+    [title]="'Título Principal'"
+    [subTitle1]="'Sub-título 1'"
+    [subTitle2]="'Sub-título 2'"
+    [subTitle3]="'Sub-título 3'"
     [version]="'Frontend - 0.0.1'"
     [label]="'local'"
     [versions]="[
