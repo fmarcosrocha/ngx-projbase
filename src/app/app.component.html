@@ -1,49 +1,52 @@
 <lib-main-container #sidebar
-  [licenca]="'ORG. LTDA'"
-  [sistema]="'Projeto Base'"
-  [menus]="[
-    { icone: '', titulo: 'Introdução', menus: [
-      { icone: '', uri: 'sobre', titulo: 'Sobre' },
-      { icone: '', uri: 'como-comecar', titulo: 'Como começar' },
-      { icone: '', uri: 'consumindo-arquitetura', titulo: 'Consumindo a arquitetura' },
+                    [title]="'Título Principal'"
+                    [license]="'ORG. LTDA'"
+                    [systemName]="'Projeto Base'"
+                    [menus]="[
+    { icon: '', title: 'Introdução', menus: [
+      { icon: '', uri: 'sobre', title: 'Sobre' },
+      { icon: '', uri: 'como-comecar', title: 'Como começar' },
+      { icon: '', uri: 'consumindo-arquitetura', title: 'Consumindo a arquitetura' },
     ] },
-    { icone: '', titulo: 'Componentes', menus: [
-      { icone: '', uri: '/componentes/accordion', titulo: 'Accordion' },
-      { icone: '', uri: '/componentes/avatar', titulo: 'Avatar' },
-      { icone: '', uri: '/componentes/breadcumb', titulo: 'Breadcumb' },
-      { icone: '', uri: '/componentes/button', titulo: 'Button' },
-      { icone: '', uri: '/componentes/card', titulo: 'Card' },
-      { icone: '', uri: '/componentes/data-table', titulo: 'Data Table' },
-      { icone: '', uri: '/componentes/date-time-picker', titulo: 'Data Time Picker' },
-      { icone: '', uri: '/componentes/input', titulo: 'Input' },
-      { icone: '', uri: '/componentes/input-file', titulo: 'File Upload' },
-      { icone: '', uri: '/componentes/modal', titulo: 'Modal' },
-      { icone: '', uri: '/componentes/radio-button', titulo: 'Radio Button' },
-      { icone: '', uri: '/componentes/select', titulo: 'Select' }
+    { icon: '', title: 'Componentes', menus: [
+      { icon: '', uri: '/componentes/accordion', title: 'Accordion' },
+      { icon: '', uri: '/componentes/avatar', title: 'Avatar' },
+      { icon: '', uri: '/componentes/breadcumb', title: 'Breadcumb' },
+      { icon: '', uri: '/componentes/button', title: 'Button' },
+      { icon: '', uri: '/componentes/card', title: 'Card' },
+      { icon: '', uri: '/componentes/data-table', title: 'Data Table' },
+      { icon: '', uri: '/componentes/date-time-picker', title: 'Data Time Picker' },
+      { icon: '', uri: '/componentes/input', title: 'Input' },
+      { icon: '', uri: '/componentes/input-file', title: 'File Upload' },
+      { icon: '', uri: '/componentes/modal', title: 'Modal' },
+      { icon: '', uri: '/componentes/radio-button', title: 'Radio Button' },
+      { icon: '', uri: '/componentes/select', title: 'Select' }
     ] },
-    { icone: '', uri: 'sso', titulo: 'SSO' }
+    { icon: '', uri: 'sso', title: 'SSO' }
   ]"
-  (scrollTop)="scrollPage($event)"
+                    (scrollTop)="scrollPage($event)"
 >
   <lib-navbar
-    [secretaria]="'Unidade / Setor dentro da Organização'"
-    [sistema]="'Informação sobre o Sistema'"
-    [versao]="'Frontend - 0.0.1'"
+    [title]="'Título Principal'"
+    [subTitle1]="'Sub-título 1'"
+    [subTitle2]="'Sub-título 2'"
+    [subTitle3]="'Sub-título 3'"
+    [version]="'Frontend - 0.0.1'"
     [label]="'local'"
-    [versoes]="[
-      { icone: 'dns', versao: '1.0.0-RC-48-04', label: 'local' },
-      { icone: 'backup_table', versao: '1.0.0-RC-37-03', label: 'local' }
+    [versions]="[
+      { icon: 'dns', version: '1.0.0-RC-48-04', label: 'local' },
+      { icon: 'backup_table', version: '1.0.0-RC-37-03', label: 'local' }
     ]"
     [shrink]="navbarShrink"
-    [notificacao]="{
+    [notification]="{
       total: 2,
       menus: [
-        { uri: 'componentes/notificacoes', titulo: 'Ver todas notificações' },
+        { uri: 'componentes/notificacoes', title: 'Ver todas notificações' },
       ]
     }"
-    [logado]="logado"
-    [usuario]="usuarioLogado"
-    (abrirMenu)="abrirMenu()"
+    [logged]="isLogged"
+    [user]="userLogged"
+    (openMenu)="openMenu()"
     (login)="login()"
     (logoff)="logoff()"
   ></lib-navbar>
@@ -52,5 +55,5 @@
     <router-outlet></router-outlet>
   </div>
 
-  <lib-footer [licenca]="'Todos os direitos reservados.'"></lib-footer>
+  <lib-footer [license]="'Todos os direitos reservados.'"></lib-footer>
 </lib-main-container>

@@ -1,28 +1,30 @@
 <mat-toolbar class="mat-elevation-z4 mat-white lib-toolbar-top">
   <mat-toolbar-row style="height: 60px;" [ngClass]="{ 'nav-shrink' : shrink }">
-    <img alt="" class="img-title" src="./assets/images/logo.png" />
+    <img alt="" class="img-title" src="./assets/images/logo.png"/>
     <mat-divider [vertical]="true" style="margin: 2px 16px; height: 70%;"></mat-divider>
     <div class="navbar-title" *ngIf="!isSmallScreen">
-      Título Principal
+      {{ title }}
     </div>
     <span class="lib-spacer"></span>
 
-    <ng-container *ngIf="notificacao && notificacao.total > 0">
-      <button mat-button mat-icon-button color="primary" class="mr-3" aria-label="Notificações" [matMenuTriggerFor]="menuNotificacao">
-        <i matBadge="{{ notificacao.total }}" matBadgeColor="warn" class="fa fa-comment fa-2" aria-hidden="true"></i>
+    <ng-container *ngIf="notification && notification.total > 0">
+      <button mat-button mat-icon-button color="primary" class="mr-3" aria-label="Notifications"
+              [matMenuTriggerFor]="notificationMenu">
+        <i matBadge="{{ notification.total }}" matBadgeColor="warn" class="fa fa-comment fa-2" aria-hidden="true"></i>
       </button>
 
-      <mat-menu #menuNotificacao="matMenu" xPosition="before">
+      <mat-menu #notificationMenu="matMenu" xPosition="before">
 
-        <ng-container *ngIf="notificacao.menus && notificacao.menus.length > 0; then temMenu; else naoTemMenu;"></ng-container>
-        <ng-template #temMenu>
-          <ng-container *ngIf="notificacao.menus && notificacao.menus.length > 0">
-            <a mat-menu-item *ngFor="let item of notificacao.menus" [routerLink]="item.uri">{{ item.titulo }}</a>
+        <ng-container
+          *ngIf="notification.menus && notification.menus.length > 0; then hasMenu; else hasNoMenu;"></ng-container>
+        <ng-template #hasMenu>
+          <ng-container *ngIf="notification.menus && notification.menus.length > 0">
+            <a mat-menu-item *ngFor="let item of notification.menus" [routerLink]="item.uri">{{ item.title }}</a>
           </ng-container>
         </ng-template>
-        <ng-template #naoTemMenu>
+        <ng-template #hasNoMenu>
           <button mat-menu-item>
-            Nenhum menu configurado
+            No menu configured
           </button>
         </ng-template>
 
@@ -32,51 +34,51 @@
     <ng-container *ngIf="isSmallScreen; then simpleBar; else fullBar"></ng-container>
 
     <!--componente do avatar...-->
-    <ng-template #usuarioAvatar>
-      <ng-template #avatarComImagem>
-        <img mat-card-avatar src="{{usuario.imagemAvatar}}" alt="Avatar"/>
+    <ng-template #userAvatar>
+      <ng-template #avatarWithImage>
+        <img mat-card-avatar src="{{user.avatarImage}}" alt="Avatar"/>
       </ng-template>
-      <ng-template #avatarSemImagem>
-        <div *ngIf="usuario && usuario.initial" mat-card-avatar class="bg-success text-white">
-          <span>{{usuario.initial.toUpperCase()}}</span>
+      <ng-template #avatarWithoutImage>
+        <div *ngIf="user && user.initial" mat-card-avatar class="bg-success text-white">
+          <span>{{user.initial.toUpperCase()}}</span>
         </div>
-        <mat-icon style="font-size: 36px;" *ngIf="!usuario || !usuario.initial" role="img" mat-card-avatar>person</mat-icon>
+        <mat-icon style="font-size: 36px;" *ngIf="!user || !user.initial" role="img" mat-card-avatar>person</mat-icon>
       </ng-template>
-      <ng-container *ngIf="usuario.imagemAvatar; then avatarComImagem else avatarSemImagem"></ng-container>
+      <ng-container *ngIf="user.avatarImage; then avatarWithImage else avatarWithoutImage"></ng-container>
     </ng-template>
 
     <ng-template #simpleBar>
-      <button mat-button mat-icon-button color="primary" class="mr-3" aria-label="Menu" [matMenuTriggerFor]="menuCompleto">
+      <button mat-button mat-icon-button color="primary" class="mr-3" aria-label="Menu" [matMenuTriggerFor]="fullMenu">
         <mat-icon>apps</mat-icon>
       </button>
-      <mat-menu #menuCompleto="matMenu" xPosition="before">
-        <ng-container *ngIf="!logado && exibirLogin">
+      <mat-menu #fullMenu="matMenu" xPosition="before">
+        <ng-container *ngIf="!logged && showLogin">
           <button mat-menu-item (click)="login.emit()">
             <div class="d-flex">
               <mat-icon class="mr-3">person</mat-icon>
-              <span>Entrar</span>
+              <span>Login</span>
             </div>
           </button>
 
           <mat-divider></mat-divider>
         </ng-container>
 
-        <ng-container *ngIf="versoes && versoes.length > 0; else unicaVersaoM;">
-          <button mat-menu-item *ngFor="let versao of versoes">
+        <ng-container *ngIf="versions && versions.length > 0; else onlyOneVersion;">
+          <button mat-menu-item *ngFor="let item of versions">
             <div class="d-flex">
-              <mat-icon class="mr-3 material-icons-outlined">{{ versao.icone }}</mat-icon>
-              <span>{{ versao.versao }}</span>
+              <mat-icon class="mr-3 material-icons-outlined">{{ item.icon }}</mat-icon>
+              <span>{{ item.version }}</span>
               <mat-chip-list class="ml-3" *ngIf="label">
-                <mat-chip color="warn" selected>{{ versao.label }}</mat-chip>
+                <mat-chip color="warn" selected>{{ item.label }}</mat-chip>
               </mat-chip-list>
             </div>
           </button>
         </ng-container>
-        <ng-template #unicaVersaoM>
+        <ng-template #onlyOneVersion>
           <button mat-menu-item>
             <div class="d-flex">
               <mat-icon class="mr-3 material-icons-outlined">info</mat-icon>
-              <span>{{ versao }}</span>
+              <span>{{ version }}</span>
               <mat-chip-list class="ml-3" *ngIf="label">
                 <mat-chip color="warn" selected>{{ label }}</mat-chip>
               </mat-chip-list>
@@ -84,29 +86,31 @@
           </button>
         </ng-template>
       </mat-menu>
-      <ng-container *ngIf="logado && exibirLogin">
-        <ng-container *ngTemplateOutlet="usuarioAvatar"></ng-container>
+      <ng-container *ngIf="logged && showLogin">
+        <ng-container *ngTemplateOutlet="userAvatar"></ng-container>
 
-        <button mat-button mat-icon-button color="primary" aria-label="Usuário" [matMenuTriggerFor]="usuarioMenu">
+        <button mat-button mat-icon-button color="primary" aria-label="User" [matMenuTriggerFor]="usuarioMenu">
           <mat-icon>keyboard_arrow_down</mat-icon>
         </button>
         <mat-menu #usuarioMenu="matMenu" xPosition="before" class="mat-menu-panel-login">
 
-          <ng-container *ngIf="usuario && usuario.uri; else hasNotUri">
-            <a mat-menu-item [routerLink]="usuario.uri" [ngStyle]="{'height': exibirRoles ? '80px' : '58px'}">
+          <ng-container *ngIf="user && user.uri; else hasNotUri">
+            <a mat-menu-item [routerLink]="user.uri" [ngStyle]="{'height': showRoles ? '80px' : '58px'}">
               <div style="min-width: 250px;"><!--468px-->
-                <p style="margin: 0; line-height: 25px; font-weight: bold;">{{ usuario ? usuario.firstName + ' ' + usuario.lastName : '' }}</p>
-                <p style="margin: 0; line-height: 25px;"><small>{{ usuario ? usuario.email : '' }}</small></p>
-                <p style="margin: 0; line-height: 25px;" *ngIf="exibirRoles"><small>{{ getRoles() }}</small></p>
+                <p
+                  style="margin: 0; line-height: 25px; font-weight: bold;">{{ user ? user.firstName + ' ' + user.lastName : '' }}</p>
+                <p style="margin: 0; line-height: 25px;"><small>{{ user ? user.email : '' }}</small></p>
+                <p style="margin: 0; line-height: 25px;" *ngIf="showRoles"><small>{{ getRoles() }}</small></p>
               </div>
             </a>
           </ng-container>
           <ng-template #hasNotUri>
-            <a mat-menu-item [ngStyle]="{'height': exibirRoles ? '80px' : '58px'}">
+            <a mat-menu-item [ngStyle]="{'height': showRoles ? '80px' : '58px'}">
               <div style="min-width: 250px;"><!--468px-->
-                <p style="margin: 0; line-height: 25px; font-weight: bold;">{{ usuario ? usuario.firstName + ' ' + usuario.lastName : '' }}</p>
-                <p style="margin: 0; line-height: 25px;"><small>{{ usuario ? usuario.email : '' }}</small></p>
-                <p style="margin: 0; line-height: 25px;" *ngIf="exibirRoles"><small>{{ getRoles() }}</small></p>
+                <p
+                  style="margin: 0; line-height: 25px; font-weight: bold;">{{ user ? user.firstName + ' ' + user.lastName : '' }}</p>
+                <p style="margin: 0; line-height: 25px;"><small>{{ user ? user.email : '' }}</small></p>
+                <p style="margin: 0; line-height: 25px;" *ngIf="showRoles"><small>{{ getRoles() }}</small></p>
               </div>
             </a>
           </ng-template>
@@ -115,7 +119,7 @@
           <button mat-menu-item (click)="logoff.emit()">
             <div class="d-flex">
               <mat-icon class="mr-3">logout</mat-icon>
-              <span>Sair</span>
+              <span>Logout</span>
             </div>
           </button>
         </mat-menu>
@@ -124,18 +128,19 @@
     </ng-template>
     <ng-template #fullBar>
 
-      <ng-container *ngIf="versoes && versoes.length > 0; else unicaVersao;">
+      <ng-container *ngIf="versions && versions.length > 0; else unicaVersao;">
 
-        <button mat-button mat-icon-button color="primary" class="mr-3" aria-label="Informação" [matMenuTriggerFor]="menu">
+        <button mat-button mat-icon-button color="primary" class="mr-3" aria-label="Informação"
+                [matMenuTriggerFor]="menu">
           <i class="fa fa-info fa-2" aria-hidden="true"></i>
         </button>
         <mat-menu #menu="matMenu" xPosition="before">
-          <button mat-menu-item *ngFor="let versao of versoes">
+          <button mat-menu-item *ngFor="let item of versions">
             <div class="d-flex">
-              <mat-icon class="mr-3 material-icons-outlined">{{ versao.icone }}</mat-icon>
-              <span>{{ versao.versao }}</span>
+              <mat-icon class="mr-3 material-icons-outlined">{{ item.icon }}</mat-icon>
+              <span>{{ item.version }}</span>
               <mat-chip-list class="ml-3" *ngIf="label">
-                <mat-chip color="warn" selected>{{ versao.label }}</mat-chip>
+                <mat-chip color="warn" selected>{{ item.label }}</mat-chip>
               </mat-chip-list>
             </div>
           </button>
@@ -144,14 +149,15 @@
       </ng-container>
       <ng-template #unicaVersao>
 
-        <button mat-button mat-icon-button color="primary" class="mr-3" aria-label="Informação" [matMenuTriggerFor]="menu">
+        <button mat-button mat-icon-button color="primary" class="mr-3" aria-label="Information"
+                [matMenuTriggerFor]="menu">
           <i class="fa fa-info fa-2" aria-hidden="true"></i>
         </button>
         <mat-menu #menu="matMenu" xPosition="before">
           <button mat-menu-item>
             <div class="d-flex">
               <mat-icon class="mr-3 material-icons-outlined">info</mat-icon>
-              <span>{{ versao }}</span>
+              <span>{{ version }}</span>
               <mat-chip-list class="ml-3" *ngIf="label">
                 <mat-chip color="warn" selected>{{ label }}</mat-chip>
               </mat-chip-list>
@@ -161,36 +167,39 @@
 
       </ng-template>
 
-      <button *ngIf="!logado && exibirLogin" mat-button color="primary" (click)="login.emit()">
+      <button *ngIf="!logged && showLogin" mat-button color="primary" (click)="login.emit()">
         <div class="d-flex">
           <mat-icon class="mr-3">person</mat-icon>
-          <span>Entrar</span>
+          <span>Login</span>
         </div>
       </button>
 
-      <ng-container *ngIf="logado && exibirLogin">
-        <ng-container *ngTemplateOutlet="usuarioAvatar"></ng-container>
+      <ng-container *ngIf="logged && showLogin">
+        <ng-container *ngTemplateOutlet="userAvatar"></ng-container>
 
-        <button mat-button mat-icon-button color="primary" class="mr-3" aria-label="Usuário" [matMenuTriggerFor]="usuarioMenu">
+        <button mat-button mat-icon-button color="primary" class="mr-3" aria-label="User"
+                [matMenuTriggerFor]="usuarioMenu">
           <mat-icon>keyboard_arrow_down</mat-icon>
         </button>
         <mat-menu #usuarioMenu="matMenu" xPosition="before" class="mat-menu-panel-login">
 
-          <ng-container *ngIf="usuario && usuario.uri; else hasNotUri1">
-            <a mat-menu-item [routerLink]="usuario.uri" [ngStyle]="{'height': exibirRoles ? '80px' : '58px'}">
+          <ng-container *ngIf="user && user.uri; else hasNotUri1">
+            <a mat-menu-item [routerLink]="user.uri" [ngStyle]="{'height': showRoles ? '80px' : '58px'}">
               <div style="min-width: 350px;"><!--468px-->
-                <p style="margin: 0; line-height: 25px; font-weight: bold;">{{ usuario ? usuario.firstName + ' ' + usuario.lastName : '' }}</p>
-                <p style="margin: 0; line-height: 25px;"><small>{{ usuario ? usuario.email : '' }}</small></p>
-                <p style="margin: 0; line-height: 25px;" *ngIf="exibirRoles"><small>{{ getRoles() }}</small></p>
+                <p
+                  style="margin: 0; line-height: 25px; font-weight: bold;">{{ user ? user.firstName + ' ' + user.lastName : '' }}</p>
+                <p style="margin: 0; line-height: 25px;"><small>{{ user ? user.email : '' }}</small></p>
+                <p style="margin: 0; line-height: 25px;" *ngIf="showRoles"><small>{{ getRoles() }}</small></p>
               </div>
             </a>
           </ng-container>
           <ng-template #hasNotUri1>
-            <a mat-menu-item [ngStyle]="{'height': exibirRoles ? '80px' : '58px'}">
+            <a mat-menu-item [ngStyle]="{'height': showRoles ? '80px' : '58px'}">
               <div style="min-width: 350px;"><!--468px-->
-                <p style="margin: 0; line-height: 25px; font-weight: bold;">{{ usuario ? usuario.firstName + ' ' + usuario.lastName : '' }}</p>
-                <p style="margin: 0; line-height: 25px;"><small>{{ usuario ? usuario.email : '' }}</small></p>
-                <p style="margin: 0; line-height: 25px;" *ngIf="exibirRoles"><small>{{ getRoles() }}</small></p>
+                <p
+                  style="margin: 0; line-height: 25px; font-weight: bold;">{{ user ? user.firstName + ' ' + user.lastName : '' }}</p>
+                <p style="margin: 0; line-height: 25px;"><small>{{ user ? user.email : '' }}</small></p>
+                <p style="margin: 0; line-height: 25px;" *ngIf="showRoles"><small>{{ getRoles() }}</small></p>
               </div>
             </a>
           </ng-template>
@@ -199,7 +208,7 @@
           <button mat-menu-item (click)="logoff.emit()">
             <div class="d-flex">
               <mat-icon class="mr-3">logout</mat-icon>
-              <span>Sair</span>
+              <span>Logout</span>
             </div>
           </button>
         </mat-menu>
@@ -209,14 +218,14 @@
   </mat-toolbar-row>
 
   <mat-toolbar-row style="align-items: flex-start; height: 79px;">
-    <button *ngIf="exibirMenu" mat-button mat-icon-button color="primary" aria-label="Abrir menu" class="icon-menu"
-      (click)="abrirMenu.emit()">
+    <button *ngIf="showMenu" mat-button mat-icon-button color="primary" aria-label="Open menu" class="icon-menu"
+            (click)="openMenu.emit()">
       <mat-icon class="primary">menu</mat-icon>
     </button>
     <div class="overflow-hidden">
-      <p class="ma-0 mat-subheading-2 text-primary">Organização LTDA</p>
-      <p class="ma-0 mat-subheading-1 overflow-text-ellipsis">{{ secretaria }}</p>
-      <p class="ma-0 mat-subheading-1 overflow-text-ellipsis">{{ sistema }}</p>
+      <p class="ma-0 mat-subheading-2 text-primary">{{ subTitle1 }}</p>
+      <p class="ma-0 mat-subheading-1 overflow-text-ellipsis">{{ subTitle2 }}</p>
+      <p class="ma-0 mat-subheading-1 overflow-text-ellipsis">{{ subTitle3 }}</p>
     </div>
     <span class="lib-spacer"></span>
   </mat-toolbar-row>
