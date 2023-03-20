@@ -1,7 +1,7 @@
-#Construir para publicação:
+#Build to Production:
 
-- Ajustar a versão da lib a ser publicada no package.json em projects/projbase;
-- Executar o comando: ng build --configuration production
+- Adjust the lib's version to be published in package.json in `projects/projbase`;
+- Run the command: `ng build --configuration production`
 
 
 # AngularArq

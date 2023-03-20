@@ -1,14 +1,14 @@
 <lib-main-container #sidebar
-                    [title]="'Título Principal'"
-                    [license]="'ORG. LTDA'"
-                    [systemName]="'Projeto Base'"
+                    [title]="'Main Title'"
+                    [license]="'ORG. LTD.'"
+                    [systemName]="'Base Project App'"
                     [menus]="[
-    { icon: '', title: 'Introdução', menus: [
-      { icon: '', uri: 'sobre', title: 'Sobre' },
-      { icon: '', uri: 'como-comecar', title: 'Como começar' },
-      { icon: '', uri: 'consumindo-arquitetura', title: 'Consumindo a arquitetura' },
+    { icon: '', title: 'Introduction', menus: [
+      { icon: '', uri: 'sobre', title: 'About' },
+      { icon: '', uri: 'como-comecar', title: 'How to begin' },
+      { icon: '', uri: 'consumindo-arquitetura', title: 'Consuming' },
     ] },
-    { icon: '', title: 'Componentes', menus: [
+    { icon: '', title: 'Components', menus: [
       { icon: '', uri: '/componentes/accordion', title: 'Accordion' },
       { icon: '', uri: '/componentes/avatar', title: 'Avatar' },
       { icon: '', uri: '/componentes/breadcumb', title: 'Breadcumb' },
@@ -27,10 +27,10 @@
                     (scrollTop)="scrollPage($event)"
 >
   <lib-navbar
-    [title]="'Título Principal'"
-    [subTitle1]="'Sub-título 1'"
-    [subTitle2]="'Sub-título 2'"
-    [subTitle3]="'Sub-título 3'"
+    [title]="'Main Title'"
+    [subTitle1]="'Subtitle 1'"
+    [subTitle2]="'Subtitle 2'"
+    [subTitle3]="'Subtitle 3'"
     [version]="'Frontend - 0.0.1'"
     [label]="'local'"
     [versions]="[
@@ -41,7 +41,7 @@
     [notification]="{
       total: 2,
       menus: [
-        { uri: 'componentes/notificacoes', title: 'Ver todas notificações' },
+        { uri: 'componentes/notificacoes', title: 'All notifications' },
       ]
     }"
     [logged]="isLogged"
@@ -55,5 +55,5 @@
     <router-outlet></router-outlet>
   </div>
 
-  <lib-footer [license]="'Todos os direitos reservados.'"></lib-footer>
+  <lib-footer license="&copy; 2023 ORG. LTD. All rights reserved."></lib-footer>
 </lib-main-container>
