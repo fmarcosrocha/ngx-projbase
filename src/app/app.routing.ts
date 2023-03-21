@@ -12,25 +12,25 @@ import {
   ModalComponent,
   RadioButtonComponent,
   SelectComponent,
-  ComoComecarComponent,
-  SobreComponent,
+  HowToStartComponent,
+  AboutComponent,
   SsoComponent,
   NotificacaoComponent,
-  ConsumindoArquiteturaComponent,
+  HowToUseComponent,
   InputFileComponent
 } from 'app/views';
 import { AuthGuard } from 'app/shared/guard/auth-guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'sobre', pathMatch: 'full' },
-  { path: 'sobre', component: SobreComponent },
-  { path: 'como-comecar', component: ComoComecarComponent },
-  { path: 'consumindo-arquitetura', component: ConsumindoArquiteturaComponent },
+  { path: '', redirectTo: 'about', pathMatch: 'full' },
+  { path: 'about', component: AboutComponent },
+  { path: 'how-to-start', component: HowToStartComponent },
+  { path: 'how-to-use', component: HowToUseComponent },
   { path: 'componentes', children: [
     { path: 'accordion', component: AccordionComponent },
     { path: 'avatar', component: AvatarComponent },
     { path: 'button', component: ButtonComponent },
-    { path: 'breadcumb', component: BreadcumbComponent, data: { breadcrumb: 'Breadcumb', rota: '/componentes/breadcumb' } },
+    { path: 'breadcumb', component: BreadcumbComponent, data: { breadcrumb: 'Breadcumb', rota: '/components/breadcumb' } },
     { path: 'card', component: CardComponent },
     { path: 'data-table', component: DatatableComponent },
     { path: 'date-time-picker', component: DateTimePickerComponent },
