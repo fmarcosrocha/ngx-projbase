@@ -1,5 +1,21 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {Menu} from '../main-container/main-container.component';
+
+export interface User {
+  roles?: string[];
+  avatarImage?: string;
+  initial?: string;
+  uri?: string;
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+}
+
+export interface Notification {
+  total?: number;
+  menus?: Menu[];
+}
 
 @Component({
   selector: 'lib-navbar',
@@ -21,10 +37,10 @@ export class NavbarComponent {
   @Input() version = '0.0.0';
   @Input() label = 'Label';
   @Input() versions: any[] = [];
-  @Input() notification: any = {};
+  @Input() notification: Notification = {};
   @Input() logged = false;
   @Input() showRoles = false;
-  @Input() user: any = null;
+  @Input() user!: User;
   @Input() showLogin = true;
   @Input() showMenu = true;
 

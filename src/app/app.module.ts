@@ -15,20 +15,20 @@ import {
   InputComponent,
   InputFileComponent,
   ModalComponent,
-  ModalExemploComponent,
+  ModalExampleComponent,
   RadioButtonComponent,
   SelectComponent,
-  ComoComecarComponent,
-  SobreComponent,
-  ConsumindoArquiteturaComponent,
-  NotificacaoComponent,
+  HowToStartComponent,
+  AboutComponent,
+  HowToUseComponent,
+  NotificationComponent,
   SsoComponent,
   BreadcumbComponent
 } from 'app/views';
 import { MaterialModule } from 'app/components';
-/* em desenvolvimento pode usar assim, para nao precisar efetuar o build da lib */
+/* if you're developing, to not build the lib everytime, do it below... */
 import { ProjBaseModule } from '../../projects/projbase/src/public-api';
-/* em build da lib, fazer assim... */
+/* if you're building the lib, do it below... */
 // import { ProjBaseModule } from 'projbase';
 
 import { LayoutModule } from '@angular/cdk/layout';
@@ -52,13 +52,13 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     InputComponent,
     InputFileComponent,
     ModalComponent,
-    ModalExemploComponent,
+    ModalExampleComponent,
     RadioButtonComponent,
     SelectComponent,
-    ComoComecarComponent,
-    SobreComponent,
-    ConsumindoArquiteturaComponent,
-    NotificacaoComponent,
+    HowToStartComponent,
+    AboutComponent,
+    HowToUseComponent,
+    NotificationComponent,
     SsoComponent
   ],
   imports: [

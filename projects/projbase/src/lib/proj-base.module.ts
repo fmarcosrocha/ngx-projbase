@@ -27,7 +27,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BreadcrumbService } from './breadcumb.service';
 
-const materialComponentes = [
+const materialComponents = [
   ProjBaseRouting,
   CommonModule,
   MatToolbarModule,
@@ -57,7 +57,7 @@ const materialComponentes = [
     BreadcumbComponent,
     FileDropDirective
   ],
-  imports: materialComponentes,
+  imports: materialComponents,
   exports: [
     MainContainerComponent,
     NavbarComponent,

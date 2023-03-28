@@ -1,0 +1,47 @@
+<mat-card class="mat-elevation-z2 bl-red">
+  <mat-card-header>
+    <mat-card-title style="margin-left: -16px">custom component</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      As this is a component that is not natively provided by angular-material, the following component was built and
+      customized.
+    </p>
+  </mat-card-content>
+</mat-card>
+
+<h1>Breadcumb</h1>
+<p>
+  Breadcrumb, Breadcrumb Navigation or Breadcrumb Trail (literally breadcrumb navigation or breadcrumb trail)
+  breadcrumbs, alluding to the story of Hansel and Gretel) is a structural navigation system used to provide the
+  user a means of location within the navigational structure of the site or system.
+</p>
+
+<mat-tab-group mat-align-tabs="start">
+  <mat-tab label="Preview">
+    <div class="p-3">
+      <lib-breadcumb></lib-breadcumb>
+    </div>
+  </mat-tab>
+  <mat-tab label="Html">
+    <code>
+<pre>
+&lt;lib-breadcumb&gt;&lt;/lib-breadcumb&gt;
+</pre>
+    </code>
+  </mat-tab>
+  <mat-tab label="TS">
+    <p>The component will assemble according to the route data, for it to work you will need to adjust your route to the
+      following:</p>
+    <p>Pay attention to the property <strong>data</strong>.</p>
+    <code>
+<pre>
+...
+path: 'components', data: {{ '{' }} breadcrumb: 'components', route: "/components" {{ '}' }}, children: [
+  {{ '{' }} path: 'breadcumb', component: BreadcumbComponent, data: {{ '{' }} breadcrumb: 'Breadcumb', route: "/components/breadcumb" {{ '}' }} {{ '}' }}
+  ,
+...
+</pre>
+    </code>
+  </mat-tab>
+</mat-tab-group>

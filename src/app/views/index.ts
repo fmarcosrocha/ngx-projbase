@@ -1,3 +1,3 @@
-export * from './introducao';
-export * from './componentes';
+export * from './introduction';
+export * from './components';
 export * from './sso/sso.component';

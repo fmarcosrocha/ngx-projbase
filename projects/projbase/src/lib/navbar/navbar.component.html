@@ -7,7 +7,7 @@
     </div>
     <span class="lib-spacer"></span>
 
-    <ng-container *ngIf="notification && notification.total > 0">
+    <ng-container *ngIf="notification && notification.total">
       <button mat-button mat-icon-button color="primary" class="mr-3" aria-label="Notifications"
               [matMenuTriggerFor]="notificationMenu">
         <i matBadge="{{ notification.total }}" matBadgeColor="warn" class="fa fa-comment fa-2" aria-hidden="true"></i>

@@ -1,0 +1,62 @@
+<h1>Input</h1>
+<p>It is the component that allows the input of textual data by the user.</p>
+
+<mat-tab-group mat-align-tabs="start">
+  <mat-tab label="Preview">
+    <div class="p-3">
+
+      <div style="max-width: 400px;">
+
+        <form class="submit-form">
+          <mat-label>Label</mat-label>
+          <mat-form-field appearance="outline" class="w-100 mat-form-field-label-out" floatLabel="never" color="accent">
+            <input matInput type="text" placeholder="input example" name="value" [(ngModel)]="value" [formControl]="inputFormControl">
+
+            <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value = ''">
+              <mat-icon>close</mat-icon>
+            </button>
+
+            <mat-error *ngIf="inputFormControl.hasError('required')">
+              <mat-icon aria-hidden="false">cancel</mat-icon>
+              Value is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </form>
+
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Html">
+<code>
+<pre>
+&lt;form class="submit-form"&gt;
+  &lt;mat-label&gt;Label&lt;/mat-label&gt;
+  &lt;mat-form-field appearance="outline" class="w-100 mat-form-field-label-out" floatLabel="never" color="accent"&gt;
+    &lt;input matInput type="text" placeholder="input example" name="value" [(ngModel)]="value"
+      [formControl]="inputFormControl"&gt;
+
+    &lt;button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value = ''"&gt;
+      &lt;mat-icon&gt;close&lt;/mat-icon&gt;
+    &lt;/button&gt;
+
+    &lt;mat-error *ngIf="inputFormControl.hasError('required')"&gt;
+      &lt;mat-icon aria-hidden="false"&gt;cancel&lt;/mat-icon&gt;
+      Value is &lt;strong&gt;required&lt;/strong&gt;
+    &lt;/mat-error&gt;
+  &lt;/mat-form-field&gt;
+&lt;/form&gt;
+</pre>
+</code>
+  </mat-tab>
+  <mat-tab label="TS">
+<code>
+<pre>
+inputFormControl = new FormControl('', [
+  Validators.required
+]);
+
+public value = '';
+</pre>
+</code>
+  </mat-tab>
+</mat-tab-group>

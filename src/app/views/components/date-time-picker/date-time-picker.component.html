@@ -1,0 +1,41 @@
+<h1>Date Time Picker</h1>
+<p>
+  DateTimePicker is a component that helps the user to select a date from a calendar and/or a time to
+  from a time picker.
+</p>
+
+<mat-tab-group mat-align-tabs="start">
+  <mat-tab label="Preview">
+    <div class="p-3">
+
+      <div class="d-flex" style="align-items: start!important;">
+        <div>
+          <mat-label class="d-block">Select a date</mat-label>
+          <mat-form-field appearance="outline" class="mat-form-field-label-out" floatLabel="never" color="accent">
+            <input matInput type="text" name="date" [(ngModel)]="date" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker color="primary"></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div style="width: 20px;"></div>
+        <div>
+          <mat-card>
+            <mat-calendar (selectedChange)="date = $event"></mat-calendar>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Html">
+    <code>
+<pre>
+&lt;mat-label class="d-block"&gt;Select a date&lt;/mat-label&gt;
+&lt;mat-form-field appearance="outline" class="mat-form-field-label-out" floatLabel="never" color="accent"&gt;
+  &lt;input matInput type="text" name="date" [(ngModel)]="data" [matDatepicker]="picker"&gt;
+  &lt;mat-datepicker-toggle matSuffix [for]="picker"&gt;&lt;/mat-datepicker-toggle&gt;
+  &lt;mat-datepicker #picker color="primary"&gt;&lt;/mat-datepicker&gt;
+&lt;/mat-form-field&gt;
+</pre>
+    </code>
+  </mat-tab>
+</mat-tab-group>

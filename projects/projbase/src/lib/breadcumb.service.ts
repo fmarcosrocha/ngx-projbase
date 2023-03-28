@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 
 export class Breadcrumb {
   label?: string;
-  rota?: string;
+  route?: string;
 }
 
 @Injectable({
@@ -36,7 +36,7 @@ export class BreadcrumbService {
       if (route.data.breadcrumb) {
         const breadcrumb = {
           label: this.getLabel(route.data),
-          rota: route.data.rota ? route.data.rota : ''
+          route: route.data.route ? route.data.route : ''
         } as Breadcrumb;
         breadcrumbs.push(breadcrumb);
       }

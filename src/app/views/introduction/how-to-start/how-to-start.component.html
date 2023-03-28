@@ -1,0 +1,54 @@
+<h1>How to get started</h1>
+<p>The following will explain how to go up and develop in this project.</p>
+<p>The project is made up of <strong>Example components</strong>, to help other teams consume them, and a library that
+  will provide the base layout and a <strong>theme/sass</strong> (with classes custom) for Angular-Material</p>
+
+<br>
+<h2>How do projects consume our lib?</h2>
+<p>This project will generate a compiled file, <strong>projbase-*.tgz</strong>, and this will be imported into client
+  projects. More information in the <a [routerLink]="'/how-to-use'">installation documentation</a>.</p>
+
+<br>
+<h2>Project Structure</h2>
+
+<ul>
+  <li>
+    Sample Components <strong>(What you change here does not affect client projects of this architecture)</strong>
+    <ul>
+      <li>src/app</li>
+    </ul>
+  </li>
+  <li>
+    Base library <strong>(What you change here <span style="color: red;">affects client projects</span> as long as they
+    consume a new build version)</strong>
+    <ul>
+      <li>projects/projbase</li>
+    </ul>
+  </li>
+</ul>
+
+<br>
+<h2>Installing dependencies</h2>
+<code>
+<pre>
+npm install
+</pre>
+</code>
+
+<br>
+<h2>Build and pack the base library</h2>
+<p>The following commands were configured in package.json:</p>
+<code>
+<pre>
+npm run build:library
+npm runpack:library
+</pre>
+</code>
+
+<br>
+<h2>Running the project</h2>
+<code>
+<pre>
+npm start
+</pre>
+</code>

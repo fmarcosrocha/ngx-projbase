@@ -1,0 +1,80 @@
+<h1>Modal</h1>
+<p>
+  Modal is a window that displays additional content on a layer above the current page, with an overlay of
+  surface (overlay) covering the page and making it temporarily inaccessible.
+</p>
+
+<mat-tab-group mat-align-tabs="start">
+  <mat-tab label="Preview">
+    <div class="p-3">
+
+      <button mat-stroked-button color="primary" class="rounded" (click)="openModal()">
+        <div class="d-flex">
+          <mat-icon class="mr-3">open_in_new</mat-icon>
+          <span>open modal</span>
+        </div>
+      </button>
+
+    </div>
+  </mat-tab>
+  <mat-tab label="Html">
+    <code>
+<pre>
+&lt;button mat-stroked-button color="primary" class="rounded" (click)="openModal()"&gt;
+  &lt;div class="d-flex"&gt;
+    &lt;mat-icon class="mr-3"&gt;open_in_new&lt;/mat-icon&gt;
+    &lt;span&gt;open modal&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/button&gt;
+</pre>
+</code>
+  </mat-tab>
+  <mat-tab label="TS">
+<code>
+<pre>
+export class ModalComponent {{ '{' }}
+  constructor(public _dialog: MatDialog) {{ '{ }' }}
+
+  abrirModal(): void {{ '{' }}
+    const dialogRef = this._dialog.open(ModalExemploComponent, {{ '{' }}
+      width: '450px'
+    {{ '}' }})
+  {{ '}' }}
+{{ '}' }}
+
+@Component({{ '{' }}
+  selector: 'app-modal-example',
+  templateUrl: 'modal-example.component.html',
+{{ '}' }})
+export class ModalExampleComponent {{ '{ }' }}
+
+  constructor(public dialogRef: MatDialogRef&lt;ModalExampleComponent&gt;) {{ '{' }}
+
+  onNoClick(): void {{ '{' }}
+    this.dialogRef.close();
+    {{ '}' }}
+{{ '}' }}
+</pre>
+</code>
+  </mat-tab>
+  <mat-tab label="Modal Html">
+<code>
+<pre>
+&lt;h1 mat-dialog-title&gt;Modal Example&lt;/h1&gt;
+&lt;div mat-dialog-content&gt;
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+  magna aliqua.
+&lt;/div&gt;
+&lt;div mat-dialog-actions&gt;
+  &lt;button mat-raised-button mat-dialog-close color="primary" class="rounded"&gt;
+    Confirm
+  &lt;/button&gt;
+
+  &lt;button mat-stroked-button mat-dialog-close color="primary" class="rounded"&gt;
+    Cancel
+  &lt;/button&gt;
+&lt;/div&gt;
+</pre>
+</code>
+  </mat-tab>
+</mat-tab-group>
