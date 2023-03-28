@@ -11,10 +11,10 @@ export class InputFileComponent {
   public uploadCtrl = {
     error: '',
     upload: (evt: any) => {
-      this.uploadCtrl.error = 'Os arquivos devem ser no formato PNG ou JPG e ter no máximo 100MB';
+      this.uploadCtrl.error = 'Files must be in PNG or JPG format and have a maximum size of 100MB';
     },
     dropped: (files: any) => {
-      this.uploadCtrl.error = 'Os arquivos devem ser no formato PNG ou JPG e ter no máximo 100MB';
+      this.uploadCtrl.error = 'Files must be in PNG or JPG format and have a maximum size of 100MB';
     }
   }
 }

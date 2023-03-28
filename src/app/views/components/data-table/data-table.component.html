@@ -1,105 +1,101 @@
 <h1>Data Table</h1>
-<p>A Data Table (Tabela) é um conjunto de dados organizados em linhas e colunas. Pode permitir a interação do usuário, a
-  fim de personalizar os dados exibidos.</p>
+<p>
+  It is a set of data organized into rows and columns. It can allow user interaction, the
+  in order to customize the displayed data.
+</p>
 
 <mat-tab-group mat-align-tabs="start">
   <mat-tab label="Preview">
     <div class="p-3">
       <div class="table-search d-flex align-center mb-3">
-        <ng-container *ngIf="filtroCtrl.exibirPesquisa">
+        <ng-container *ngIf="filtroCtrl.showSearch">
           <mat-form-field appearance="outline" class="w-100" floatLabel="never">
-            <input matInput placeholder="Buscar na tabela" (keyup)="filtroCtrl.filtrar($event.target)">
+            <input matInput placeholder="Buscar na tabela" (keyup)="filtroCtrl.filter($event.target)">
             <mat-icon matSuffix>search</mat-icon>
           </mat-form-field>
         </ng-container>
-        <ng-container *ngIf="!filtroCtrl.exibirPesquisa">
-          <h1 class="mb-0 w-100 font-weight-700">Título da tabela</h1>
+        <ng-container *ngIf="!filtroCtrl.showSearch">
+          <h1 class="mb-0 w-100 font-weight-700">table title</h1>
         </ng-container>
         <div style="width: 15px"></div>
-        <button mat-icon-button class="primary" aria-label="Informação" (click)="filtroCtrl.exibir()">
-          <mat-icon *ngIf="!filtroCtrl.exibirPesquisa" class="primary">search</mat-icon>
-          <mat-icon *ngIf="filtroCtrl.exibirPesquisa" class="primary">close</mat-icon>
+        <button mat-icon-button class="primary" aria-label="information" (click)="filtroCtrl.show()">
+          <mat-icon *ngIf="!filtroCtrl.showSearch" class="primary">search</mat-icon>
+          <mat-icon *ngIf="filtroCtrl.showSearch" class="primary">close</mat-icon>
         </button>
       </div>
-      
+
       <div class="table-sort">
         <div class="d-flex">
           <div class="w-100">
-            <mat-label>Ordenar por</mat-label>
+            <mat-label>sort by</mat-label>
             <mat-form-field appearance="outline" class="w-100 mat-form-field-label-out" floatLabel="never" color="accent">
-              <mat-select name="valor" [(ngModel)]="ordenacaoCtrl.ordenacao" (matSortChange)="ordenacaoCtrl.ordenar()">
-                <mat-option value="cpf">CPF</mat-option>
-                <mat-option value="nome">Nome</mat-option>
-                <mat-option value="genitora">Genitora</mat-option>
-                <mat-option value="dataNascimento">Data de nascimento</mat-option>
+              <mat-select name="value" [(ngModel)]="sortCtrl.sorting" (matSortChange)="sortCtrl.sort()">
+                <mat-option value="name">Name</mat-option>
+                <mat-option value="lastname">Lastname</mat-option>
+                <mat-option value="birthdate">Birthdate</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
 
-          <ng-container *ngIf="ordenacaoCtrl.ordenacao">
+          <ng-container *ngIf="sortCtrl.sorting">
             <div style="width: 15px"></div>
-  
-            <button mat-icon-button class="primary" aria-label="Ordenação" (click)="ordenacaoCtrl.mudar()">
-              <mat-icon class="primary">{{ ordenacaoCtrl.direcao === 'asc' ? 'arrow_upward' : 'arrow_downward' }}</mat-icon>
+
+            <button mat-icon-button class="primary" aria-label="ordination" (click)="sortCtrl.change()">
+              <mat-icon class="primary">{{ sortCtrl.direction === 'asc' ? 'arrow_upward' : 'arrow_downward' }}</mat-icon>
             </button>
           </ng-container>
         </div>
-        
+
       </div>
 
       <mat-table [dataSource]="dataSource" matSort class="w-100">
         <ng-container matColumnDef="_select">
           <mat-header-cell *matHeaderCellDef>
-            <mat-checkbox (change)="$event ? selecaoCtrl.selecionarTodos() : null"
-                          [checked]="selecaoCtrl.itens.hasValue() && selecaoCtrl.verificaTodosSelecionados()"
-                          [indeterminate]="selecaoCtrl.itens.hasValue() && !selecaoCtrl.verificaTodosSelecionados()">
+            <mat-checkbox (change)="$event ? selectionCtrl.selectAll() : null"
+                          [checked]="selectionCtrl.items.hasValue() && selectionCtrl.checkSelecteds()"
+                          [indeterminate]="selectionCtrl.items.hasValue() && !selectionCtrl.checkSelecteds()">
             </mat-checkbox>
           </mat-header-cell>
           <mat-cell *matCellDef="let row">
             <mat-checkbox (click)="$event.stopPropagation()"
-                          (change)="$event ? selecaoCtrl.itens.toggle(row) : null"
-                          [checked]="selecaoCtrl.itens.isSelected(row)">
+                          (change)="$event ? selectionCtrl.items.toggle(row) : null"
+                          [checked]="selectionCtrl.items.isSelected(row)">
             </mat-checkbox>
           </mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="cpf">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>CPF</mat-header-cell>
-          <mat-cell *matCellDef="let element" data-label="CPF"> {{element.cpf}} </mat-cell>
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="Name"> {{element.name}} </mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="nome">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Nome</mat-header-cell>
-          <mat-cell *matCellDef="let element" data-label="Nome"> {{element.nome}} </mat-cell>
+        <ng-container matColumnDef="lastname">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Lastname</mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="Lastname"> {{element.lastname}} </mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="genitora">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Genitora</mat-header-cell>
-          <mat-cell *matCellDef="let element" data-label="Genitora"> {{element.genitora}} </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef="dataNascimento">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Data de nascimento</mat-header-cell>
-          <mat-cell *matCellDef="let element" data-label="Data de nascimento"> {{element.dataNascimento}} </mat-cell>
+        <ng-container matColumnDef="birthdate">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Birthdate</mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="Birthdate"> {{element.birthdate}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="_action">
-          <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef>actions</mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <button mat-button mat-icon-button class="primary" matTooltip="Pesquisar">
+            <button mat-button mat-icon-button class="primary" matTooltip="search">
               <mat-icon class="mat-primary">search</mat-icon>
             </button>
-            <button mat-button mat-icon-button class="primary" matTooltip="Editar">
+            <button mat-button mat-icon-button class="primary" matTooltip="edit">
               <mat-icon class="mat-primary">edit</mat-icon>
             </button>
-            <button mat-button mat-icon-button class="primary" matTooltip="Deletar">
+            <button mat-button mat-icon-button class="primary" matTooltip="delete">
               <mat-icon class="mat-primary">delete_outline</mat-icon>
             </button>
           </mat-cell>
         </ng-container>
 
-        <mat-header-row *matHeaderRowDef="colunas"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: colunas;"></mat-row>
+        <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columns;"></mat-row>
       </mat-table>
 
       <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
@@ -111,58 +107,53 @@
 &lt;mat-table [dataSource]="dataSource" matSort class="w-100"&gt;
   &lt;ng-container matColumnDef="_select"&gt;
     &lt;mat-header-cell *matHeaderCellDef&gt;
-      &lt;mat-checkbox (change)="$event ? selecaoCtrl.selecionarTodos() : null"
-                    [checked]="selecaoCtrl.itens.hasValue() && selecaoCtrl.verificaTodosSelecionados()"
-                    [indeterminate]="selecaoCtrl.itens.hasValue() && !selecaoCtrl.verificaTodosSelecionados()"&gt;
+      &lt;mat-checkbox (change)="$event ? selectionCtrl.selectAll() : null"
+                    [checked]="selectionCtrl.items.hasValue() && selectionCtrl.checkSelecteds()"
+                    [indeterminate]="selectionCtrl.items.hasValue() && !selectionCtrl.checkSelecteds()"&gt;
       &lt;/mat-checkbox&gt;
     &lt;/mat-header-cell&gt;
     &lt;mat-cell *matCellDef="let row"&gt;
       &lt;mat-checkbox (click)="$event.stopPropagation()"
-                    (change)="$event ? selecaoCtrl.itens.toggle(row) : null"
-                    [checked]="selecaoCtrl.itens.isSelected(row)"&gt;
+                    (change)="$event ? selectionCtrl.items.toggle(row) : null"
+                    [checked]="selectionCtrl.items.isSelected(row)"&gt;
       &lt;/mat-checkbox&gt;
     &lt;/mat-cell&gt;
   &lt;/ng-container&gt;
-  
-  &lt;ng-container matColumnDef="cpf"&gt;
-    &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt;CPF&lt;/mat-header-cell&gt;
-    &lt;mat-cell *matCellDef="let element" data-label="CPF"&gt; {{'{{'}}element.cpf{{'}}'}} &lt;/mat-cell&gt;
+
+  &lt;ng-container matColumnDef="name"&gt;
+    &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt;Name&lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef="let element" data-label="Name"&gt; {{'{{'}}element.name{{'}}'}} &lt;/mat-cell&gt;
   &lt;/ng-container&gt;
-  
-  &lt;ng-container matColumnDef="nome"&gt;
-    &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt;Nome&lt;/mat-header-cell&gt;
-    &lt;mat-cell *matCellDef="let element" data-label="Nome"&gt; {{'{{'}}element.nome{{'}}'}} &lt;/mat-cell&gt;
+
+  &lt;ng-container matColumnDef="lastname"&gt;
+    &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt;Lastname&lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef="let element" data-label="Lastname"&gt; {{'{{'}}element.lastname{{'}}'}} &lt;/mat-cell&gt;
   &lt;/ng-container&gt;
-  
-  &lt;ng-container matColumnDef="genitora"&gt;
-    &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt;Genitora&lt;/mat-header-cell&gt;
-    &lt;mat-cell *matCellDef="let element" data-label="Genitora"&gt; {{'{{'}}element.genitora{{'}}'}} &lt;/mat-cell&gt;
+
+  &lt;ng-container matColumnDef="birthdate"&gt;
+    &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt;Birthdate&lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef="let element" data-label="Birthdate"&gt; {{'{{'}}element.birthdate{{'}}'}} &lt;/mat-cell&gt;
   &lt;/ng-container&gt;
-  
-  &lt;ng-container matColumnDef="dataNascimento"&gt;
-    &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt;Data de nascimento&lt;/mat-header-cell&gt;
-    &lt;mat-cell *matCellDef="let element" data-label="Data de nascimento"&gt; {{'{{'}}element.dataNascimento{{'}}'}} &lt;/mat-cell&gt;
-  &lt;/ng-container&gt;
-  
+
   &lt;ng-container matColumnDef="_action"&gt;
     &lt;mat-header-cell *matHeaderCellDef&gt;Ações&lt;/mat-header-cell&gt;
     &lt;mat-cell *matCellDef="let element"&gt;
-      &lt;button mat-button mat-icon-button class="primary" matTooltip="Pesquisar"&gt;
+      &lt;button mat-button mat-icon-button class="primary" matTooltip="Search"&gt;
         &lt;mat-icon class="mat-primary"&gt;search&lt;/mat-icon&gt;
       &lt;/button&gt;
-      &lt;button mat-button mat-icon-button class="primary" matTooltip="Editar"&gt;
+      &lt;button mat-button mat-icon-button class="primary" matTooltip="Edit"&gt;
         &lt;mat-icon class="mat-primary"&gt;edit&lt;/mat-icon&gt;
       &lt;/button&gt;
-      &lt;button mat-button mat-icon-button class="primary" matTooltip="Deletar"&gt;
+      &lt;button mat-button mat-icon-button class="primary" matTooltip="Delete"&gt;
         &lt;mat-icon class="mat-primary"&gt;delete_outline&lt;/mat-icon&gt;
       &lt;/button&gt;
     &lt;/mat-cell&gt;
   &lt;/ng-container&gt;
-  
-  &lt;mat-header-row *matHeaderRowDef="colunas"&gt;&lt;/mat-header-row&gt;
-  &lt;mat-row *matRowDef="let row; columns: colunas;"&gt;&lt;/mat-row&gt;
+
+  &lt;mat-header-row *matHeaderRowDef="columns"&gt;&lt;/mat-header-row&gt;
+  &lt;mat-row *matRowDef="let row; columns: columns;"&gt;&lt;/mat-row&gt;
 &lt;/mat-table&gt;
-  
+
   &lt;mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons&gt;&lt;/mat-paginator&gt;
 </pre>
 </code>
@@ -170,27 +161,26 @@
   <mat-tab label="TS">
 <code>
 <pre>
-export interface UsuarioDTO {{'{'}}
-  cpf: string;
-  nome: string;
-  genitora: string;
-  dataNascimento: string;
+export interface User {{'{'}}
+  name: string;
+  lastname: string;
+  birthdate: string;
 {{'}'}}
 
-const ELEMENT_DATA: UsuarioDTO[] = [
-  {{'{'}} cpf: '111.623.470-79', nome: 'Mour', genitora: 'Noawen', dataNascimento: '14/05/1985' {{'}'}},
-  {{'{'}} cpf: '700.584.370-37', nome: 'Deuisna', genitora: 'Kyuhe', dataNascimento: '25/05/1988' {{'}'}},
-  {{'{'}} cpf: '129.358.450-99', nome: 'Neoro', genitora: 'Lauda', dataNascimento: '14/05/1990' {{'}'}},
-  {{'{'}} cpf: '791.540.700-74', nome: 'Kaema ', genitora: 'Viuhi', dataNascimento: '13/05/1975' {{'}'}},
-  {{'{'}} cpf: '999.263.750-43', nome: 'Cehel', genitora: 'Dusea', dataNascimento: '10/05/1980' {{'}'}},
-  {{'{'}} cpf: '765.011.400-72', nome: 'Muluohe', genitora: 'Ceol', dataNascimento: '08/05/1980' {{'}'}},
-  {{'{'}} cpf: '789.193.880-67', nome: 'Clual', genitora: 'Xaepoal', dataNascimento: '11/05/1975' {{'}'}},
-  {{'{'}} cpf: '269.985.110-86', nome: 'Zuaer', genitora: 'Xifaunai', dataNascimento: '28/05/1966' {{'}'}},
-  {{'{'}} cpf: '611.396.270-90', nome: 'Irmopor', genitora: 'Leyelfun', dataNascimento: '14/05/1974' {{'}'}},
-  {{'{'}} cpf: '344.711.500-90', nome: 'Puass', genitora: 'Feozus', dataNascimento: '26/05/1994' {{'}'}},
-  {{'{'}} cpf: '288.741.380-59', nome: 'Hiobe', genitora: 'Cyewo', dataNascimento: '07/05/1995' {{'}'}},
-  {{'{'}} cpf: '698.212.870-93', nome: 'Baceurin', genitora: 'Funul', dataNascimento: '06/05/1988' {{'}'}},
-  {{'{'}} cpf: '461.031.080-55', nome: 'Luywi', genitora: 'Dunol', dataNascimento: '01/05/1987' {{'}'}}
+const ELEMENT_DATA: User[] = [
+  {{'{'}} name: 'Mour', lastname: 'Noawen', birthdate: '14/05/1985' {{'}'}},
+  {{'{'}} name: 'Deuisna', lastname: 'Kyuhe', birthdate: '25/05/1988' {{'}'}},
+  {{'{'}} name: 'Neoro', lastname: 'Lauda', birthdate: '14/05/1990' {{'}'}},
+  {{'{'}} name: 'Kaema ', lastname: 'Viuhi', birthdate: '13/05/1975' {{'}'}},
+  {{'{'}} name: 'Cehel', lastname: 'Dusea', birthdate: '10/05/1980' {{'}'}},
+  {{'{'}} name: 'Muluohe', lastname: 'Ceol', birthdate: '08/05/1980' {{'}'}},
+  {{'{'}} name: 'Clual', lastname: 'Xaepoal', birthdate: '11/05/1975' {{'}'}},
+  {{'{'}} name: 'Zuaer', lastname: 'Xifaunai', birthdate: '28/05/1966' {{'}'}},
+  {{'{'}} name: 'Irmopor', lastname: 'Leyelfun', birthdate: '14/05/1974' {{'}'}},
+  {{'{'}} name: 'Puass', lastname: 'Feozus', birthdate: '26/05/1994' {{'}'}},
+  {{'{'}} name: 'Hiobe', lastname: 'Cyewo', birthdate: '07/05/1995' {{'}'}},
+  {{'{'}} name: 'Baceurin', lastname: 'Funul', birthdate: '06/05/1988' {{'}'}},
+  {{'{'}} name: 'Luywi', lastname: 'Dunol', birthdate: '01/05/1987' {{'}'}}
 ];
 
 @Component({{'{'}}
@@ -202,11 +192,11 @@ export class DatatableComponent implements AfterViewInit {{'{'}}
   constructor() {{'{'}} {{'}'}}
 
   ngAfterViewInit(): void {{'{'}}
-    this.paginator._intl.itemsPerPageLabel = "Exibir";
-    this.paginator._intl.nextPageLabel = "Próxima página";
-    this.paginator._intl.lastPageLabel = "Última página";
-    this.paginator._intl.previousPageLabel = "Página anterior";
-    this.paginator._intl.firstPageLabel = "Primeira página";
+    this.paginator._intl.itemsPerPageLabel = "Show";
+    this.paginator._intl.nextPageLabel = "Next Page";
+    this.paginator._intl.lastPageLabel = "Last Page";
+    this.paginator._intl.previousPageLabel = "Previous Page";
+    this.paginator._intl.firstPageLabel = "First Page";
 
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
@@ -215,45 +205,45 @@ export class DatatableComponent implements AfterViewInit {{'{'}}
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  colunas: string[] = ['_select', 'cpf', 'nome', 'genitora', 'dataNascimento', '_action'];
-  dataSource = new MatTableDataSource&lt;UsuarioDTO&gt;(ELEMENT_DATA);
+  columns: string[] = ['_select', 'name', 'lastname', 'birthdate', '_action'];
+  dataSource = new MatTableDataSource&lt;Usuario&gt;(ELEMENT_DATA);
 
   public filtroCtrl = {{'{'}}
-    exibirPesquisa: false,
+    showSearch: false,
     exibir: () => {{'{'}}
-      this.filtroCtrl.exibirPesquisa = !this.filtroCtrl.exibirPesquisa;
+      this.filtroCtrl.showSearch = !this.filtroCtrl.showSearch;
 
-      if (!this.filtroCtrl.exibirPesquisa) {{'{'}}
+      if (!this.filtroCtrl.showSearch) {{'{'}}
         this.dataSource.filter = '';
       {{'}'}}
     {{'}'}},
-    filtrar: (target: any) => {{'{'}}
+    filter: (target: any) => {{'{'}}
       this.dataSource.filter = target!.value;
     {{'}'}}
   {{'}'}}
 
-  public ordenacaoCtrl = {{'{'}}
-    direcao: 'asc',
-    mudar: () => {{'{'}}
-      this.ordenacaoCtrl.direcao = this.ordenacaoCtrl.direcao === 'asc' ? 'desc' : 'asc';
-      this.ordenacaoCtrl.ordenar();
+  public sortControl = {{'{'}}
+    direction: 'asc',
+    change: () => {{'{'}}
+      this.sortControl.direction = this.sortControl.direction === 'asc' ? 'desc' : 'asc';
+      this.sortControl.sorted();
     {{'}'}},
-    ordenacao: '',
-    ordenar: () => {{'{'}}
-      this.sort.sort(({{'{'}} id: this.ordenacaoCtrl.ordenacao, start: this.ordenacaoCtrl.direcao {{'}'}}) as MatSortable);
+    sort: '',
+    sorted: () => {{'{'}}
+      this.sort.sort(({{'{'}} id: this.sortControl.sort, start: this.sortControl.direction {{'}'}}) as MatSortable);
       this.dataSource.sort = this.sort;
     {{'}'}}
   {{'}'}}
 
-  public selecaoCtrl = {{'{'}}
-    itens: new SelectionModel&lt;UsuarioDTO&gt;(true, []),
-    selecionarTodos: () => {{'{'}}
-      this.selecaoCtrl.verificaTodosSelecionados() ?
-        this.selecaoCtrl.itens.clear() :
-        this.dataSource.data.forEach(row => this.selecaoCtrl.itens.select(row));
+  public selectionCtrl = {{'{'}}
+    items: new SelectionModel&lt;User&gt;(true, []),
+    selectAll: () => {{'{'}}
+      this.selectionCtrl.checkSelecteds() ?
+        this.selectionCtrl.items.clear() :
+        this.dataSource.data.forEach(row => this.selectionCtrl.items.select(row));
     {{'}'}},
-    verificaTodosSelecionados: () => {{'{'}}
-      const numSelected = this.selecaoCtrl.itens.selected.length;
+    checkSelecteds: () => {{'{'}}
+      const numSelected = this.selectionCtrl.items.selected.length;
       const numRows = this.dataSource.data.length;
 
       return numSelected === numRows;

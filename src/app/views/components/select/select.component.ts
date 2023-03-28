@@ -13,5 +13,5 @@ export class SelectComponent {
     Validators.required
   ]);
 
-  public valor = '';
+  public value = '';
 }

@@ -1,17 +1,17 @@
 <mat-card class="mat-elevation-z2 bl-red">
   <mat-card-header>
-    <mat-card-title color="accent" style="margin-left: -16px">Componente customizado</mat-card-title>
+    <mat-card-title style="margin-left: -16px">custom component</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <p>
-      Por se tratar de um componente que não é fornecido nativamente pelo angular-material, foi construído e customizado o componente a seguir.
+      As this is a component that is not natively provided by angular-material, the following component was built and customized.
     </p>
-    <p>Também foi construído uma diretiva para possibilitar o arrastar e soltar arquivos.</p>
+    <p>A directive was also built to allow dragging and dropping files.</p>
   </mat-card-content>
 </mat-card>
 
 <h1>File upload</h1>
-<p>É o componente que permite a entrada de dados textuais por parte do usuário.</p>
+<p>It is the component that allows the input of textual data by the user.</p>
 
 <mat-tab-group mat-align-tabs="start">
   <mat-tab label="Preview">
@@ -20,13 +20,13 @@
       <div style="max-width: 600px;">
 
         <form class="submit-form">
-          <mat-label>Exemplo de upload</mat-label>
+          <mat-label>Upload Example</mat-label>
           <div class="mat-button-upload">
             <input hidden type="file" #inputFileUpload (change)="uploadCtrl.upload($event)"/>
             <button class="w-100" mat-stroked-button color="primary" (click)="inputFileUpload.click()" libFileDrop (files)="uploadCtrl.dropped($event)">
               <div class="d-flex">
                 <mat-icon class="mr-3">upload</mat-icon>
-                <span>Selecione o arquivo</span>
+                <span>Select a file</span>
               </div>
             </button>
             <div *ngIf="uploadCtrl.error" class="mat-error">
@@ -40,13 +40,13 @@
   <mat-tab label="Html">
 <code>
 <pre>
-&lt;mat-label&gt;Exemplo de upload&lt;/mat-label&gt;
+&lt;mat-label&gt;Upload Example&lt;/mat-label&gt;
 &lt;div class="mat-button-upload"&gt;
   &lt;input hidden type="file" #inputFileUpload (change)="uploadCtrl.upload($event)"/&gt;
   &lt;button class="w-100" mat-stroked-button color="primary" (click)="inputFileUpload.click()" libFileDrop (files)="uploadCtrl.dropped($event)"&gt;
     &lt;div class="d-flex"&gt;
       &lt;mat-icon class="mr-3"&gt;upload&lt;/mat-icon&gt;
-      &lt;span&gt;Selecione o arquivo&lt;/span&gt;
+      &lt;span&gt;Select a file&lt;/span&gt;
     &lt;/div&gt;
   &lt;/button&gt;
   &lt;div *ngIf="uploadCtrl.error" class="mat-error"&gt;
@@ -62,10 +62,10 @@
 public uploadCtrl = {{'{'}}
   error: '',
   upload: (evt: any) => {{'{'}}
-    this.uploadCtrl.error = 'Os arquivos devem ser no formato PNG ou JPG e ter no máximo 100MB';
+    this.uploadCtrl.error = 'Files must be in PNG or JPG format and have a maximum size of 100MB';
   {{'}'}},
   dropped: (files: any) => {{'{'}}
-    this.uploadCtrl.error = 'Os arquivos devem ser no formato PNG ou JPG e ter no máximo 100MB';
+    this.uploadCtrl.error = 'Files must be in PNG or JPG format and have a maximum size of 100MB';
   {{'}'}}
 {{'}'}}
 </pre>

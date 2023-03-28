@@ -1,5 +1,5 @@
 <h1>Select</h1>
-<p>O componente select permite selecionar itens em uma lista de opções.</p>
+<p>The select component lets you select items from a list of options.</p>
 
 <mat-tab-group mat-align-tabs="start">
   <mat-tab label="Preview">
@@ -7,9 +7,9 @@
       <div style="max-width: 400px;">
 
         <form class="submit-form">
-          <mat-label>Escolha uma opção</mat-label>
+          <mat-label>Choice an option</mat-label>
           <mat-form-field appearance="outline" class="w-100 mat-form-field-label-out" floatLabel="never" color="accent">
-            <mat-select name="valor" [(ngModel)]="valor" [formControl]="inputFormControl">
+            <mat-select name="value" [(ngModel)]="value" [formControl]="inputFormControl">
               <mat-option value="option1">Option 1</mat-option>
               <mat-option value="option2" disabled>Option 2 (disabled)</mat-option>
               <mat-option value="option3">Option 3</mat-option>
@@ -17,7 +17,7 @@
 
             <mat-error *ngIf="inputFormControl.hasError('required')">
               <mat-icon aria-hidden="false">cancel</mat-icon>
-              Valor é <strong>obrigatório</strong>
+              Value ie <strong>required</strong>
             </mat-error>
           </mat-form-field>
         </form>
@@ -29,9 +29,9 @@
 <code>
 <pre>
 &lt;form class="submit-form"&gt;
-  &lt;mat-label&gt;Escolha uma opção&lt;/mat-label&gt;
+  &lt;mat-label&gt;Choice an option&lt;/mat-label&gt;
   &lt;mat-form-field appearance="outline" class="w-100 mat-form-field-label-out" floatLabel="never" color="accent"&gt;
-    &lt;mat-select name="valor" [(ngModel)]="valor" [formControl]="inputFormControl"&gt;
+    &lt;mat-select name="value" [(ngModel)]="value" [formControl]="inputFormControl"&gt;
       &lt;mat-option value="option1"&gt;Option 1&lt;/mat-option&gt;
       &lt;mat-option value="option2" disabled&gt;Option 2 (disabled)&lt;/mat-option&gt;
       &lt;mat-option value="option3"&gt;Option 3&lt;/mat-option&gt;
@@ -39,7 +39,7 @@
 
     &lt;mat-error *ngIf="inputFormControl.hasError('required')"&gt;
       &lt;mat-icon aria-hidden="false"&gt;cancel&lt;/mat-icon&gt;
-      Valor é &lt;strong&gt;obrigatório&lt;/strong&gt;
+      Value ie &lt;strong&gt;required&lt;/strong&gt;
     &lt;/mat-error&gt;
   &lt;/mat-form-field&gt;
 &lt;/form&gt;
@@ -53,7 +53,7 @@ inputFormControl = new FormControl('', [
   Validators.required
 ]);
 
-public valor = '';
+public value = '';
 </pre>
 </code>
   </mat-tab>

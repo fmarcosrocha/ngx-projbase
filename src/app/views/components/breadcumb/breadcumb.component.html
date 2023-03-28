@@ -1,18 +1,21 @@
 <mat-card class="mat-elevation-z2 bl-red">
   <mat-card-header>
-    <mat-card-title color="accent" style="margin-left: -16px">Componente customizado</mat-card-title>
+    <mat-card-title style="margin-left: -16px">custom component</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <p>
-      Por se tratar de um componente que não é fornecido nativamente pelo angular-material, foi construído e customizado o componente a seguir.
+      As this is a component that is not natively provided by angular-material, the following component was built and
+      customized.
     </p>
   </mat-card-content>
 </mat-card>
 
 <h1>Breadcumb</h1>
-<p>Breadcrumb, Breadcrumb Navigation ou Breadcrumb Trail (literalmente, navegação por migalhas de pão ou trilha de
-  migalhas de pão, em alusão à história de João e Maria) é um sistema de navegação estrutural usado para proporcionar ao
-  usuário um meio de localização dentro da estrutura de navegação do site ou sistema.</p>
+<p>
+  Breadcrumb, Breadcrumb Navigation or Breadcrumb Trail (literally breadcrumb navigation or breadcrumb trail)
+  breadcrumbs, alluding to the story of Hansel and Gretel) is a structural navigation system used to provide the
+  user a means of location within the navigational structure of the site or system.
+</p>
 
 <mat-tab-group mat-align-tabs="start">
   <mat-tab label="Preview">
@@ -25,18 +28,20 @@
 <pre>
 &lt;lib-breadcumb&gt;&lt;/lib-breadcumb&gt;
 </pre>
-</code>
+    </code>
   </mat-tab>
   <mat-tab label="TS">
-    <p>O componente irá se montar de acordo com os dados da rota, para que o mesmo funciona será necessário ajustar o seu route para o seguinte:</p>
-    <p>Atente-se a propriedade <strong>data</strong>.</p>
+    <p>The component will assemble according to the route data, for it to work you will need to adjust your route to the
+      following:</p>
+    <p>Pay attention to the property <strong>data</strong>.</p>
     <code>
 <pre>
 ...
-path: 'componentes', data: {{ '{' }} breadcrumb: 'Componentes', rota: "/components" {{ '}' }}, children: [
-  {{ '{' }} path: 'breadcumb', component: BreadcumbComponent, data: {{ '{' }} breadcrumb: 'Breadcumb', rota: "/components/breadcumb" {{ '}' }} {{ '}' }},
+path: 'components', data: {{ '{' }} breadcrumb: 'components', route: "/components" {{ '}' }}, children: [
+  {{ '{' }} path: 'breadcumb', component: BreadcumbComponent, data: {{ '{' }} breadcrumb: 'Breadcumb', route: "/components/breadcumb" {{ '}' }} {{ '}' }}
+  ,
 ...
 </pre>
-</code>
+    </code>
   </mat-tab>
 </mat-tab-group>

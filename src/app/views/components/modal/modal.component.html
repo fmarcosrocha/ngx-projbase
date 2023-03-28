@@ -1,15 +1,17 @@
 <h1>Modal</h1>
-<p>Modal é uma janela que exibe um conteúdo adicional em uma camada acima da página atual, com uma sobreposição de
-  superfície (overlay) cobrindo a página e tornando-a temporáriamente inacessível.</p>
+<p>
+  Modal is a window that displays additional content on a layer above the current page, with an overlay of
+  surface (overlay) covering the page and making it temporarily inaccessible.
+</p>
 
 <mat-tab-group mat-align-tabs="start">
   <mat-tab label="Preview">
     <div class="p-3">
 
-      <button mat-stroked-button color="primary" class="rounded" (click)="abrirModal()">
+      <button mat-stroked-button color="primary" class="rounded" (click)="openModal()">
         <div class="d-flex">
           <mat-icon class="mr-3">open_in_new</mat-icon>
-          <span>Abrir modal</span>
+          <span>open modal</span>
         </div>
       </button>
 
@@ -18,10 +20,10 @@
   <mat-tab label="Html">
     <code>
 <pre>
-&lt;button mat-stroked-button color="primary" class="rounded" (click)="abrirModal()"&gt;
+&lt;button mat-stroked-button color="primary" class="rounded" (click)="openModal()"&gt;
   &lt;div class="d-flex"&gt;
     &lt;mat-icon class="mr-3"&gt;open_in_new&lt;/mat-icon&gt;
-    &lt;span&gt;Abrir modal&lt;/span&gt;
+    &lt;span&gt;open modal&lt;/span&gt;
   &lt;/div&gt;
 &lt;/button&gt;
 </pre>
@@ -41,12 +43,12 @@ export class ModalComponent {{ '{' }}
 {{ '}' }}
 
 @Component({{ '{' }}
-  selector: 'app-modal-exemplo',
-  templateUrl: 'modal-exemplo.component.html',
+  selector: 'app-modal-example',
+  templateUrl: 'modal-example.component.html',
 {{ '}' }})
-export class ModalExemploComponent {{ '{ }' }}
+export class ModalExampleComponent {{ '{ }' }}
 
-  constructor(public dialogRef: MatDialogRef&lt;ModalExemploComponent&gt;) {{ '{' }}
+  constructor(public dialogRef: MatDialogRef&lt;ModalExampleComponent&gt;) {{ '{' }}
 
   onNoClick(): void {{ '{' }}
     this.dialogRef.close();
@@ -58,18 +60,18 @@ export class ModalExemploComponent {{ '{ }' }}
   <mat-tab label="Modal Html">
 <code>
 <pre>
-&lt;h1 mat-dialog-title&gt;Exemplo de modal&lt;/h1&gt;
+&lt;h1 mat-dialog-title&gt;Modal Example&lt;/h1&gt;
 &lt;div mat-dialog-content&gt;
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
   magna aliqua.
 &lt;/div&gt;
 &lt;div mat-dialog-actions&gt;
   &lt;button mat-raised-button mat-dialog-close color="primary" class="rounded"&gt;
-    Confirmar
+    Confirm
   &lt;/button&gt;
 
   &lt;button mat-stroked-button mat-dialog-close color="primary" class="rounded"&gt;
-    Cancelar
+    Cancel
   &lt;/button&gt;
 &lt;/div&gt;
 </pre>

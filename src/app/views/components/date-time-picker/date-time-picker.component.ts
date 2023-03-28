@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
 export class DateTimePickerComponent {
   constructor() { }
 
-  public data?: Date | null;
+  public date?: Date | null;
 }

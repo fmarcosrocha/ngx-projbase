@@ -10,4 +10,4 @@ export * from './input-file/input-file.component';
 export * from './modal/modal.component';
 export * from './radio-button/radio-button.component';
 export * from './select/select.component';
-export * from './notificacao/notificacao.component';
+export * from './notificacao/notification.component';

@@ -13,5 +13,5 @@ export class InputComponent {
     Validators.required
   ]);
 
-  public valor = '';
+  public value = '';
 }

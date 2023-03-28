@@ -9,5 +9,5 @@ export class RadioButtonComponent {
   constructor() { }
 
   item?: string;
-  itens: string[] = ['Angular', 'React', 'Vuejs'];
+  items: string[] = ['Angular', 'React', 'Vuejs'];
 }

@@ -1,31 +1,34 @@
-<h1>Como começar</h1>
-<p>A seguir, será explicado como subir e desenvolver neste projeto.</p>
-<p>O projeto é composto por <strong>Componentes de exemplo</strong>, para ajudar outros times a consumirem e por uma biblioteca que irá fornecer o layout base e um <strong>tema/sass</strong> (com classes customizadas) para o Angular-Material</p>
+<h1>How to get started</h1>
+<p>The following will explain how to go up and develop in this project.</p>
+<p>The project is made up of <strong>Example components</strong>, to help other teams consume them, and a library that
+  will provide the base layout and a <strong>theme/sass</strong> (with classes custom) for Angular-Material</p>
 
 <br>
-<h2>Como os projetos consomem nossa lib?</h2>
-<p>Este projeto irá gerar um arquivo compilado, <strong>projbase-*.tgz</strong>, e esse será importado nos projetos cliente. Mais informações na <a [routerLink]="'/how-to-use'">documentação de instalação</a>.</p>
+<h2>How do projects consume our lib?</h2>
+<p>This project will generate a compiled file, <strong>projbase-*.tgz</strong>, and this will be imported into client
+  projects. More information in the <a [routerLink]="'/how-to-use'">installation documentation</a>.</p>
 
 <br>
-<h2>Estrutura do projeto</h2>
+<h2>Project Structure</h2>
 
 <ul>
-    <li>
-        Componentes de exemplo <strong>(O que for alterado aqui, não afeta os projetos clientes desta arquitetura)</strong>
-        <ul>
-            <li>src/app</li>
-        </ul>
-    </li>
-    <li>
-        Biblioteca base <strong>(O que for alterado aqui <span style="color: red;">afeta os projetos clientes</span>, desde que eles consumam uma nova versão do build)</strong>
-        <ul>
-            <li>projects/projbase</li>
-        </ul>
-    </li>
+  <li>
+    Sample Components <strong>(What you change here does not affect client projects of this architecture)</strong>
+    <ul>
+      <li>src/app</li>
+    </ul>
+  </li>
+  <li>
+    Base library <strong>(What you change here <span style="color: red;">affects client projects</span> as long as they
+    consume a new build version)</strong>
+    <ul>
+      <li>projects/projbase</li>
+    </ul>
+  </li>
 </ul>
 
 <br>
-<h2>Instalação das dependências</h2>
+<h2>Installing dependencies</h2>
 <code>
 <pre>
 npm install
@@ -33,17 +36,17 @@ npm install
 </code>
 
 <br>
-<h2>Build e pack da biblioteca base</h2>
-<p>No package.json foi configurado os seguintes comandos:</p>
+<h2>Build and pack the base library</h2>
+<p>The following commands were configured in package.json:</p>
 <code>
 <pre>
 npm run build:library
-npm run pack:library
+npm runpack:library
 </pre>
 </code>
 
 <br>
-<h2>Rodando o projeto</h2>
+<h2>Running the project</h2>
 <code>
 <pre>
 npm start

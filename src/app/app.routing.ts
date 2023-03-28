@@ -15,7 +15,7 @@ import {
   HowToStartComponent,
   AboutComponent,
   SsoComponent,
-  NotificacaoComponent,
+  NotificationComponent,
   HowToUseComponent,
   InputFileComponent
 } from 'app/views';
@@ -26,11 +26,11 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'how-to-start', component: HowToStartComponent },
   { path: 'how-to-use', component: HowToUseComponent },
-  { path: 'componentes', children: [
+  { path: 'components', children: [
     { path: 'accordion', component: AccordionComponent },
     { path: 'avatar', component: AvatarComponent },
     { path: 'button', component: ButtonComponent },
-    { path: 'breadcumb', component: BreadcumbComponent, data: { breadcrumb: 'Breadcumb', rota: '/components/breadcumb' } },
+    { path: 'breadcumb', component: BreadcumbComponent, data: { breadcrumb: 'Breadcumb', route: '/components/breadcumb' } },
     { path: 'card', component: CardComponent },
     { path: 'data-table', component: DatatableComponent },
     { path: 'date-time-picker', component: DateTimePickerComponent },
@@ -39,9 +39,9 @@ const routes: Routes = [
     { path: 'modal', component: ModalComponent },
     { path: 'radio-button', component: RadioButtonComponent },
     { path: 'select', component: SelectComponent },
-    { path: 'notificacoes', component: NotificacaoComponent }
+    { path: 'notifications', component: NotificationComponent }
   ] },
-  { path: 'sso', component: SsoComponent, canActivate: [AuthGuard], data: {roles: ['AdministradorProjetoBase']}}
+  { path: 'sso', component: SsoComponent, canActivate: [AuthGuard], data: {roles: ['admin']}}
 ];
 
 @NgModule({

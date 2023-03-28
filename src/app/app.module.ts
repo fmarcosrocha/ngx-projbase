@@ -15,13 +15,13 @@ import {
   InputComponent,
   InputFileComponent,
   ModalComponent,
-  ModalExemploComponent,
+  ModalExampleComponent,
   RadioButtonComponent,
   SelectComponent,
   HowToStartComponent,
   AboutComponent,
   HowToUseComponent,
-  NotificacaoComponent,
+  NotificationComponent,
   SsoComponent,
   BreadcumbComponent
 } from 'app/views';
@@ -52,13 +52,13 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     InputComponent,
     InputFileComponent,
     ModalComponent,
-    ModalExemploComponent,
+    ModalExampleComponent,
     RadioButtonComponent,
     SelectComponent,
     HowToStartComponent,
     AboutComponent,
     HowToUseComponent,
-    NotificacaoComponent,
+    NotificationComponent,
     SsoComponent
   ],
   imports: [

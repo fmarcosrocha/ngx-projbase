@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-notificacao',
-  templateUrl: './notificacao.component.html'
+  template: 'notification'
 })
 
-export class NotificacaoComponent {
+export class NotificationComponent {
   constructor() { }
 }

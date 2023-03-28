@@ -9,21 +9,21 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 export class ModalComponent {
   constructor(public _dialog: MatDialog) { }
 
-  abrirModal(): void {
-    const dialogRef = this._dialog.open(ModalExemploComponent, {
+  openModal(): void {
+    const dialogRef = this._dialog.open(ModalExampleComponent, {
       width: '450px'
-    })
+    });
   }
 }
 
 @Component({
-  selector: 'app-modal-exemplo',
-  templateUrl: 'modal-exemplo.component.html',
+  selector: 'app-modal-example',
+  templateUrl: 'modal-example.component.html',
 })
-export class ModalExemploComponent {
+export class ModalExampleComponent {
 
   constructor(
-    public dialogRef: MatDialogRef<ModalExemploComponent>) { }
+    public dialogRef: MatDialogRef<ModalExampleComponent>) { }
 
   onNoClick(): void {
     this.dialogRef.close();

@@ -10,7 +10,7 @@ export class AccordionComponent {
 
   public ctrl = {
     index: 0,
-    aberto: (index: number) => {
+    opened: (index: number) => {
       this.ctrl.index = index;
     }
   }

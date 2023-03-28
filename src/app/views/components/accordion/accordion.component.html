@@ -1,67 +1,72 @@
 <h1>Accordion</h1>
-<p>O accordion serve para que o usuário visualize mais informações sobre um conteúdo, já que permite que o item
-  inicialmente exibido na tela em forma de sentença, seja expandindo mostrando o detalhamento daquele item.</p>
-<p>Seu uso é indicado em conteúdos extensos, especialmente em interfaces de dispositivos móveis, a fim de diminuir a
-  densidade de informações para o usuário.</p>
+<p>
+  The accordion is used so that the user can see more information about a content,
+  as it allows the initially displayed item on the screen in the form of a sentence to be expanded, showing the details
+  of that item.
+</p>
+<p>
+  Its use is indicated in extensive contents, especially in mobile device interfaces, in order to reduce the
+  density of information for the user.
+</p>
 
-  
+
 <mat-tab-group mat-align-tabs="start">
   <mat-tab label="Preview">
     <div class="p-3">
 
       <mat-accordion>
-        <mat-expansion-panel class="mat-elevation-z0" (opened)="ctrl.aberto(0)">
+        <mat-expansion-panel class="mat-elevation-z0" (opened)="ctrl.opened(0)">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              painel um
+              panel one
             </mat-panel-title>
           </mat-expansion-panel-header>
           <p>
-            Conteúdo
+            content
           </p>
         </mat-expansion-panel>
-        
-        <mat-expansion-panel class="mat-elevation-z0" (opened)="ctrl.aberto(1)">
+
+        <mat-expansion-panel class="mat-elevation-z0" (opened)="ctrl.opened(1)">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Painel dois
+              panel two
             </mat-panel-title>
           </mat-expansion-panel-header>
           <p>
-            Conteúdo
+            content
           </p>
         </mat-expansion-panel>
       </mat-accordion>
-      
+
     </div>
   </mat-tab>
   <mat-tab label="Html">
-<code>
+    <code>
 <pre>
 &lt;mat-accordion&gt;
   &lt;mat-expansion-panel class="mat-elevation-z0" (opened)="ctrl.aberto(0)"&gt;
     &lt;mat-expansion-panel-header&gt;
       &lt;mat-panel-title&gt;
-        painel um
+        panel one
       &lt;/mat-panel-title&gt;
     &lt;/mat-expansion-panel-header&gt;
     &lt;p&gt;
-      Conteúdo
+      content
     &lt;/p&gt;
   &lt;/mat-expansion-panel&gt;
-  
+
   &lt;mat-expansion-panel class="mat-elevation-z0" (opened)="ctrl.aberto(1)"&gt;
     &lt;mat-expansion-panel-header&gt;
       &lt;mat-panel-title&gt;
-        Painel dois
+        panel two
       &lt;/mat-panel-title&gt;
     &lt;/mat-expansion-panel-header&gt;
     &lt;p&gt;
-      Conteúdo
+      content
     &lt;/p&gt;
   &lt;/mat-expansion-panel&gt;
 &lt;/mat-accordion&gt;
 </pre>
-</code>
+    </code>
   </mat-tab>
 </mat-tab-group>
