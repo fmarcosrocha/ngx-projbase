@@ -12,7 +12,7 @@
             </mat-list-item>
 
             <mat-list-item role="listitem">
-                <button mat-button color="primary" class="mat-caption" routerLink="{{breadcrumb.rota}}">
+                <button mat-button color="primary" class="mat-caption" routerLink="{{breadcrumb.route}}">
                     {{ breadcrumb.label }}
                 </button>
             </mat-list-item>
@@ -35,7 +35,7 @@
     <mat-menu #menu="matMenu">
         <button mat-menu-item routerLink="/">First Page</button>
         <ng-container *ngFor="let breadcrumb of (breadcrumbs$ | async)">
-            <button mat-menu-item routerLink="{{breadcrumb.rota}}">{{ breadcrumb.label }}</button>
+            <button mat-menu-item routerLink="{{breadcrumb.route}}">{{ breadcrumb.label }}</button>
         </ng-container>
     </mat-menu>
 </div>
