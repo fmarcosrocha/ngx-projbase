@@ -1,6 +1,6 @@
-import {Component, EventEmitter, forwardRef, Host, Input, OnInit, Optional, Output, SkipSelf} from '@angular/core';
+import {Component, forwardRef, Host, Input, OnInit, Optional, SkipSelf} from '@angular/core';
 import {
-  AbstractControl, AsyncValidator,
+  AbstractControl,
   ControlContainer,
   ControlValueAccessor, FormControl, FormGroup, NG_ASYNC_VALIDATORS,
   NG_VALIDATORS,
@@ -9,35 +9,34 @@ import {
   Validator
 } from '@angular/forms';
 import {ThemePalette} from '@angular/material/core';
-import {InputTextType} from '../../../directives/input-text-transform.directive';
 import {MatFormFieldAppearance} from '@angular/material/form-field';
-import {Observable} from 'rxjs';
+import {InputTextType} from '../../../directives/input-text-transform.directive';
 
 const INPUT_FIELD_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => InputTextComponent),
+  useExisting: forwardRef(() => InputTextFieldComponent),
   multi: true
 };
 
 const INPUT_FIELD_VALIDATORS: any = {
   provide: NG_VALIDATORS,
-  useExisting: forwardRef(() => InputTextComponent),
+  useExisting: forwardRef(() => InputTextFieldComponent),
   multi: true
 };
 
 const INPUT_FIELD_ASYNC_VALIDATORS: any = {
   provide: NG_ASYNC_VALIDATORS,
-  useExisting: forwardRef(() => InputTextComponent),
+  useExisting: forwardRef(() => InputTextFieldComponent),
   multi: true
 };
 
 @Component({
-  selector: 'lib-input-text',
-  templateUrl: './input-text.component.html',
-  styleUrls: ['./input-text.component.css'],
+  selector: 'lib-input-text-field',
+  templateUrl: './input-text-field.component.html',
+  styleUrls: ['./input-text-field.component.css'],
   providers: [INPUT_FIELD_VALUE_ACCESSOR, INPUT_FIELD_VALIDATORS]
 })
-export class InputTextComponent implements OnInit, ControlValueAccessor, Validator {
+export class InputTextFieldComponent implements OnInit, ControlValueAccessor, Validator {
 
   @Input() controlName = '';
   @Input() label = '';
@@ -53,6 +52,7 @@ export class InputTextComponent implements OnInit, ControlValueAccessor, Validat
   @Input() required = false;
   @Input() showClearBtn = false;
   @Input() showCopyBtn = false;
+  @Input() maxLength: number | string = 255;
   @Input() textType!: InputTextType;
   @Input() class = 'w-100 mat-form-field-label-out';
 
@@ -75,8 +75,10 @@ export class InputTextComponent implements OnInit, ControlValueAccessor, Validat
   }
 
   set value(value: string) {
-    this.innerValue = value;
-    this.onChange(this.innerValue);
+    if (value !== this.innerValue) {
+      this.innerValue = value;
+      this.onChange(this.innerValue);
+    }
   }
 
   onChange: (value: string) => void = () => {
@@ -104,23 +106,27 @@ export class InputTextComponent implements OnInit, ControlValueAccessor, Validat
   }
 
   registerOnChange(fn: (value: string) => void): void {
+    console.log('registerOnChange');
     this.onChange = fn;
   }
 
   registerOnTouched(fn: () => void): void {
+    console.log('registerOnTouched');
     this.onTouched = fn;
   }
 
   setDisabledState(isDisabled: boolean): void {
+    console.log('setDisabledState');
     this.disabled = isDisabled;
   }
 
   writeValue(value: string): void {
-    this.innerValue = value;
-    this.onChange(value);
+    console.log('writeValue');
+    this.value = value;
   }
 
   markAsTouched() {
+    console.log('markAsTouched');
     if (!this.touched) {
       this.onTouched();
       // adicionado porque o onTouched não está atualizando o parentGroup.

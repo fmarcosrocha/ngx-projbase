@@ -7,7 +7,7 @@ export * from './lib/main-container/main-container.component';
 export * from './lib/footer/footer.component';
 export * from './lib/navbar/navbar.component';
 export * from './lib/breadcumb/breadcumb.component';
-export * from './lib/components/input/input-text/input-text.component';
+export * from './lib/components/input/input-text-field/input-text-field.component';
 export * from './lib/components/form/form-debug.component';
 export * from './lib/directives/file-drop.directive';
 export * from './lib/directives/input-text-transform.directive';

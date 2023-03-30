@@ -8,10 +8,12 @@
       <div style="max-width: 400px;">
 
         <form class="submit-form" [formGroup]="formGroup">
-          <div>
-            <lib-input-text controlName="nome" label="Nome" [showClearBtn]="true"></lib-input-text>
-            <lib-form-debug [environment]="environment" [formGroup]="formGroup"></lib-form-debug>
-          </div>
+          <lib-input-text-field controlName="nome"
+                                label="Nome"
+                                textType="uppercase"
+                                [showClearBtn]="true"
+          ></lib-input-text-field>
+          <lib-form-debug [environment]="environment" [formGroup]="formGroup"></lib-form-debug>
 
           <mat-label>Label</mat-label>
           <mat-form-field appearance="outline" class="w-100 mat-form-field-label-out" floatLabel="never" color="accent">

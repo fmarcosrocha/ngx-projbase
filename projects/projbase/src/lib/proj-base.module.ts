@@ -26,7 +26,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {BreadcrumbService} from './breadcumb.service';
-import {InputTextComponent} from './components/input/input-text/input-text.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {InputLabelComponent} from './components/input/input-label/input-label.component';
 import {InputTextTransformDirective} from './directives/input-text-transform.directive';
@@ -34,6 +33,7 @@ import {FormDebugComponent} from './components/form/form-debug.component';
 import {HideProdDirective} from './directives/hide-prod.directive';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BrowserModule} from '@angular/platform-browser';
+import {InputTextFieldComponent} from './components/input/input-text-field/input-text-field.component';
 
 const MaterialComponents = [
   ProjBaseRouting,
@@ -63,7 +63,7 @@ const MaterialComponents = [
     NavbarComponent,
     FooterComponent,
     BreadcumbComponent,
-    InputTextComponent,
+    InputTextFieldComponent,
     InputLabelComponent,
     FormDebugComponent,
     // directives
@@ -85,7 +85,7 @@ const MaterialComponents = [
     NavbarComponent,
     FooterComponent,
     BreadcumbComponent,
-    InputTextComponent,
+    InputTextFieldComponent,
     FormDebugComponent,
     // directives
     FileDropDirective,

@@ -1,4 +1,4 @@
-<ng-container [formGroup]="formGroup">
+<ng-container>
   <lib-input-label [label]="label" [required]="required"></lib-input-label>
   <mat-form-field [appearance]="appearance"
                   [color]="color"
@@ -14,7 +14,8 @@
            [matTooltip]="tooltip"
            [placeholder]="placeholder"
            [textTranform]="textType"
-           [formControlName]="controlName"
+           [maxLength]="maxLength"
+           [formControl]="formControl"
            [(ngModel)]="value"
            (click)="markAsTouched()"
     >
