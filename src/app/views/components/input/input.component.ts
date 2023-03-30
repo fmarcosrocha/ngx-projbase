@@ -14,7 +14,7 @@ export class InputComponent {
     Validators.required
   ]);
 
-  formGroup = new FormGroup({nome: new FormControl({value: 'marks', disabled: false}, [Validators.required])});
+  formGroup = new FormGroup({nome: new FormControl(null, [Validators.required])});
   environment = environment;
 
   public value = '';
