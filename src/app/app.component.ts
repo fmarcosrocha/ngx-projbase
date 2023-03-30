@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {Router, NavigationEnd} from '@angular/router';
-import {MainContainerComponent} from 'projects/projbase/src/public-api';
+import {MainContainerComponent} from 'projects/projbase/src';
 
 @Component({
   selector: 'app-root',

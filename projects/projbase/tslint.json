@@ -5,7 +5,8 @@
       true,
       "attribute",
       "lib",
-      "camelCase"
+      "camelCase",
+      "input"
     ],
     "component-selector": [
       true,

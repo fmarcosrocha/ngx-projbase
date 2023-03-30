@@ -1,0 +1,30 @@
+<ng-container>
+  <lib-input-label [label]="label" [required]="required"></lib-input-label>
+  <mat-form-field [appearance]="appearance"
+                  [color]="color">
+    <input matInput
+           [type]="type"
+           [id]="id"
+           [name]="name"
+           [readonly]="readonly"
+           [title]="title"
+           [matTooltip]="tooltip"
+           [formControlName]="controlName"
+           [textTranform]="textType"
+           (click)="markAsTouched()"
+    >
+
+    <button *ngIf="showClearBtn && value"
+            matSuffix mat-icon-button aria-label="Clear"
+            (click)="clear()">
+      <mat-icon>close</mat-icon>
+    </button>
+
+    <button *ngIf="showCopyBtn"
+            matSuffix mat-icon-button aria-label="Copy" title="Copy"
+            (click)="copy()"
+    >
+      <mat-icon>content_copy</mat-icon>
+    </button>
+  </mat-form-field>
+</ng-container>

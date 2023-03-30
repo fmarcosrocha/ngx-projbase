@@ -7,6 +7,12 @@
 
       <div style="max-width: 400px;">
 
+        <div [formGroup]="formGroup">
+          <lib-input-text controlName="nome" label="Nome"
+          [showClearBtn]="true"></lib-input-text>
+          <lib-form-debug [environment]="environment" [formGroup]="formGroup"></lib-form-debug>
+        </div>
+
         <form class="submit-form">
           <mat-label>Label</mat-label>
           <mat-form-field appearance="outline" class="w-100 mat-form-field-label-out" floatLabel="never" color="accent">

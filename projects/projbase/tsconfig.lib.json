@@ -4,9 +4,17 @@
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
     "target": "es2015",
+    "module": "ES2020",
+    "moduleResolution": "node",
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
     "types": [],
     "lib": [
       "dom",
@@ -15,7 +23,7 @@
   },
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,
-    "strictMetadataEmit": true,
+    "strictMetadataEmit": false,
     "enableResourceInlining": true,
     "fullTemplateTypeCheck": true,
   },

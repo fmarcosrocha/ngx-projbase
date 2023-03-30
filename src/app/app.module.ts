@@ -27,7 +27,7 @@ import {
 } from 'app/views';
 import { MaterialModule } from 'app/components';
 /* if you're developing, to not build the lib everytime, do it below... */
-import { ProjBaseModule } from '../../projects/projbase/src/public-api';
+import { ProjBaseModule } from '../../projects/projbase/src';
 /* if you're building the lib, do it below... */
 // import { ProjBaseModule } from 'projbase';
 
@@ -75,7 +75,6 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    ProjBaseModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },

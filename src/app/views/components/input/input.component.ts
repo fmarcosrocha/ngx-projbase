@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-input',
@@ -12,6 +13,9 @@ export class InputComponent {
   inputFormControl = new FormControl('', [
     Validators.required
   ]);
+
+  formGroup = new FormGroup({nome: new FormControl({value: 'marks', disabled: false}, [Validators.required])});
+  environment = environment;
 
   public value = '';
 }
