@@ -74,8 +74,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule,
-    ProjBaseModule
+    MatListModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
