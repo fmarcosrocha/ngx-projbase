@@ -5,32 +5,28 @@
                     [menus]="[
     { icon: '', title: 'Introduction', menus: [
       { icon: '', uri: 'about', title: 'About' },
-      { icon: '', uri: 'how-to-start', title: 'How to Start' },
       { icon: '', uri: 'how-to-use', title: 'How to Use' },
     ] },
-    { icon: '', title: 'Components', menus: [
-      { icon: '', uri: '/components/accordion', title: 'Accordion' },
-      { icon: '', uri: '/components/avatar', title: 'Avatar' },
-      { icon: '', uri: '/components/breadcumb', title: 'Breadcumb' },
-      { icon: '', uri: '/components/button', title: 'Button' },
-      { icon: '', uri: '/components/card', title: 'Card' },
-      { icon: '', uri: '/components/data-table', title: 'Data Table' },
-      { icon: '', uri: '/components/date-time-picker', title: 'Data Time Picker' },
-      { icon: '', uri: '/components/input', title: 'Input' },
-      { icon: '', uri: '/components/input-file', title: 'File Upload' },
-      { icon: '', uri: '/components/modal', title: 'Modal' },
-      { icon: '', uri: '/components/radio-button', title: 'Radio Button' },
-      { icon: '', uri: '/components/select', title: 'Select' }
+    { icon: '', title: 'Students', menus: [
+      { icon: '', uri: '/components/accordion', title: 'Register student' },
+      { icon: '', uri: '/components/avatar', title: 'Edit student' },
+      { icon: '', uri: '/components/breadcumb', title: 'Delete student' },
+      { icon: '', uri: '/components/button', title: 'Show students' },
     ] },
-    { icon: '', uri: 'sso', title: 'SSO' }
+    { icon: '', title: 'Teachers', menus: [
+      { icon: '', uri: '/components/accordion', title: 'Register teacher' },
+      { icon: '', uri: '/components/avatar', title: 'Edit teacher' },
+      { icon: '', uri: '/components/breadcumb', title: 'Delete teacher' },
+      { icon: '', uri: '/components/button', title: 'Show teachers' },
+    ] }
   ]"
                     (scrollTop)="scrollPage($event)"
 >
   <lib-navbar
-    [title]="'Main Title'"
-    [subTitle1]="'Subtitle 1'"
-    [subTitle2]="'Subtitle 2'"
-    [subTitle3]="'Subtitle 3'"
+    [title]="'Online Student'"
+    [subTitle1]="''"
+    [subTitle2]="''"
+    [subTitle3]="''"
     [version]="'Frontend - 0.0.1'"
     [label]="'local'"
     [versions]="[

@@ -38,6 +38,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { HomePageComponent } from './views/components/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     AboutComponent,
     HowToUseComponent,
     NotificationComponent,
-    SsoComponent
+    SsoComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

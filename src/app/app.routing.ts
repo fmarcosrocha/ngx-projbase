@@ -20,12 +20,14 @@ import {
   InputFileComponent
 } from 'app/views';
 import { AuthGuard } from 'app/shared/guard/auth-guard';
+import {HomePageComponent} from 'app/views/components/home-page/home-page.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'about', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'about', component: AboutComponent },
   { path: 'how-to-start', component: HowToStartComponent },
   { path: 'how-to-use', component: HowToUseComponent },
+  { path: 'home', component: HomePageComponent },
   { path: 'components', children: [
     { path: 'accordion', component: AccordionComponent },
     { path: 'avatar', component: AvatarComponent },
