@@ -1,17 +1,19 @@
 <h1 style="text-align: center">registered students</h1>
 <table>
   <tr>
+    <th>Id</th>
     <th>Name</th>
     <th>CPF</th>
     <th>Phone</th>
     <th>Course</th>
     <th>Actions</th>
   </tr>
-  <tr *ngFor="let person of people">
+  <tr *ngFor="let person of students">
+    <td>{{ person.id }}</td>
     <td>{{ person.name }}</td>
-    <td>{{ person.cpf }}</td>
-    <td>{{ person.phone }}</td>
+    <td>{{ person.CPF }}</td>
+    <td>{{ person.phoneNumber }}</td>
     <td>{{ person.course }}</td>
-    <td><a style="padding-right: 10px" href="#">Edit</a><a href="#">Delete</a></td>
+    <td style="display: flex; justify-content: space-evenly;"><button style="background-color: cadetblue; color: whitesmoke">Edit</button> <button (click)="deleteItem(person.id, person.name)" style="background-color: indianred; color: whitesmoke">Delete</button></td>
   </tr>
 </table>

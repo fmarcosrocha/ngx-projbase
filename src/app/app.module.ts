@@ -41,6 +41,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { HomePageComponent } from './views/components/home-page/home-page.component';
 import { RegisterStudentComponent } from './views/components/student/register-student/register-student.component';
 import { ShowStudentComponent } from './views/components/student/show-student/show-student.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { ShowStudentComponent } from './views/components/student/show-student/sh
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     AppRouting,

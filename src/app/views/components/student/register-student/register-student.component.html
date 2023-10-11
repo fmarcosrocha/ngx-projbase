@@ -1,20 +1,20 @@
 <div style="text-align: center">
   <h1>Student Data</h1>
-  <div id="stuForm">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required><br><br>
-    <label for="cpf">CPF:</label>
-    <input type="number" id="cpf" name="cpf" required><br><br>
-    <label for="phone">Phone Number:</label>
-    <input type="number" id="phone" name="phone" required><br><br>
-    <label for="course">Course:</label>
-    <select id="course" name="course">
-      <option value="Bachelor of Science in Computer Science">Bachelor of Science in Computer Science</option>
-      <option value="Master of Business Administration (MBA)">Master of Business Administration (MBA)</option>
-      <option value="Bachelor of Arts in Psychology">Bachelor of Arts in Psychology</option>
-      <option value="Doctor of Medicine (MD)">Doctor of Medicine (MD)</option>
-      <option value="Bachelor of Fine Arts in Graphic Design">Bachelor of Fine Arts in Graphic Design</option>
-    </select><br><br>
-    <input type="submit" value="Submit">
-  </div>
+  <form (ngSubmit)="addStudent()">
+    <div id="stuForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" [(ngModel)]="studentData.name"><br><br>
+      <label for="cpf">CPF:</label>
+      <input type="number" id="cpf" name="cpf" [(ngModel)]="studentData.CPF" minlength="11" maxlength="11"><br><br>
+      <label for="phone">Phone Number:</label>
+      <input type="number" id="phone" name="phone" [(ngModel)]="studentData.phoneNumber"><br><br>
+      <label for="course">Course:</label>
+      <select id="course" name="course" [(ngModel)]="studentData.course">
+        <option *ngFor="let course of availableCourses" [value]="course">{{ course }}</option>
+      </select><br>
+      <div *ngIf="errorMessage" class="error-message" style="color: indianred">{{ errorMessage }}</div>
+      <br>
+      <button type="submit">Add Student</button>
+    </div>
+  </form>
 </div>

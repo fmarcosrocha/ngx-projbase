@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {StudentsDataService} from 'app/services/students-data.service';
+import {Student} from 'app/Interfaces/Person';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-show-student',
@@ -7,22 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowStudentComponent implements OnInit {
 
-  people = [
-    {
-      name: 'John Doe',
-      cpf: '123.456.789-01',
-      phone: '(123) 456-7890',
-      course: 'Computer Science',
-    },
-    {
-      name: 'Jane Smith',
-      cpf: '987.654.321-09',
-      phone: '(987) 654-3210',
-      course: 'Mathematics',
-    },
-  ];
+  students: Student[] = [];
+
+  constructor(private dataService: StudentsDataService, private http: HttpClient) {}
 
   ngOnInit(): void {
+    this.dataService.getStudent().subscribe((data: Student[]) => {
+      this.students = data;
+      console.log(data);
+    });
+  }
+
+  deleteItem(studentId: string, studentName: string): void {
+    const confirmation = window.confirm(`Are you sure you want to delete ${studentName}?`);
+    if (!confirmation) {
+      return;
+    }
+    this.http.delete(this.dataService.studentsUrl + `/${studentId}`).subscribe(
+      () => {
+        console.log('Item deleted successfully');
+        this.students = this.students.filter((student) => student.id !== studentId);
+      },
+      (error) => {
+        console.error('Error deleting item', error);
+      }
+    );
   }
 
 }
