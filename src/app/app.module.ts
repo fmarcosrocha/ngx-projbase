@@ -39,6 +39,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { HomePageComponent } from './views/components/home-page/home-page.component';
+import { RegisterStudentComponent } from './views/components/student/register-student/register-student.component';
+import { ShowStudentComponent } from './views/components/student/show-student/show-student.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,9 @@ import { HomePageComponent } from './views/components/home-page/home-page.compon
     HowToUseComponent,
     NotificationComponent,
     SsoComponent,
-    HomePageComponent
+    HomePageComponent,
+    RegisterStudentComponent,
+    ShowStudentComponent
   ],
   imports: [
     BrowserModule,

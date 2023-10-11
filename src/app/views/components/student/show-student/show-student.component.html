@@ -1,0 +1,17 @@
+<h1 style="text-align: center">registered students</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>CPF</th>
+    <th>Phone</th>
+    <th>Course</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let person of people">
+    <td>{{ person.name }}</td>
+    <td>{{ person.cpf }}</td>
+    <td>{{ person.phone }}</td>
+    <td>{{ person.course }}</td>
+    <td><a style="padding-right: 10px" href="#">Edit</a><a href="#">Delete</a></td>
+  </tr>
+</table>

@@ -1,0 +1,24 @@
+
+#stuForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input, #course {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#course {
+  padding: 6px 1px !important;
+  text-align: center;
+}

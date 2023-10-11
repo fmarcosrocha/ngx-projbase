@@ -21,6 +21,8 @@ import {
 } from 'app/views';
 import { AuthGuard } from 'app/shared/guard/auth-guard';
 import {HomePageComponent} from 'app/views/components/home-page/home-page.component';
+import {RegisterStudentComponent} from 'app/views/components/student/register-student/register-student.component';
+import {ShowStudentComponent} from 'app/views/components/student/show-student/show-student.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -28,6 +30,8 @@ const routes: Routes = [
   { path: 'how-to-start', component: HowToStartComponent },
   { path: 'how-to-use', component: HowToUseComponent },
   { path: 'home', component: HomePageComponent },
+  { path: 'registerStudent', component: RegisterStudentComponent },
+  { path: 'showStudent', component: ShowStudentComponent },
   { path: 'components', children: [
     { path: 'accordion', component: AccordionComponent },
     { path: 'avatar', component: AvatarComponent },
