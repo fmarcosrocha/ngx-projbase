@@ -15,11 +15,11 @@ import {
   HowToStartComponent,
   AboutComponent,
   SsoComponent,
-  NotificationComponent,
   HowToUseComponent,
   InputFileComponent
 } from 'app/views';
 import { AuthGuard } from 'app/shared/guard/auth-guard';
+import {NotificationsComponent} from 'app/views/components/notifications/notifications.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full' },
@@ -39,7 +39,7 @@ const routes: Routes = [
     { path: 'modal', component: ModalComponent },
     { path: 'radio-button', component: RadioButtonComponent },
     { path: 'select', component: SelectComponent },
-    { path: 'notifications', component: NotificationComponent }
+    { path: 'notifications', component: NotificationsComponent }
   ] },
   { path: 'sso', component: SsoComponent, canActivate: [AuthGuard], data: {roles: ['admin']}}
 ];

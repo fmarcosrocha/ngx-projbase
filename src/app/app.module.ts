@@ -21,9 +21,8 @@ import {
   HowToStartComponent,
   AboutComponent,
   HowToUseComponent,
-  NotificationComponent,
   SsoComponent,
-  BreadcumbComponent
+  BreadcumbComponent, NotificationsComponent
 } from 'app/views';
 import { MaterialModule } from 'app/components';
 /* if you're developing, to not build the lib everytime, do it below... */
@@ -58,7 +57,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     HowToStartComponent,
     AboutComponent,
     HowToUseComponent,
-    NotificationComponent,
+    NotificationsComponent,
     SsoComponent
   ],
   imports: [
