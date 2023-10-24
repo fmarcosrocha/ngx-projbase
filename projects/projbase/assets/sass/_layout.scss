@@ -1,8 +1,4 @@
 .lib-toolbar-top {
-  /*position: fixed;
-  top: 0;
-  background-color: #fff;
-  z-index: 1;*/
   position: sticky;
   top: 0;
   z-index: 2;
@@ -35,7 +31,6 @@
     }
 
     .navbar-title {
-      /*line-height: 1!important;*/
       font-size: 11.2px !important;
     }
   }
@@ -99,7 +94,6 @@
 }
 
 .lib-grid-container {
-  /*padding: 150px 16px 16px 16px;*/
   padding: 16px;
   background: #fff;
   min-height: calc(100vh - 221px);
