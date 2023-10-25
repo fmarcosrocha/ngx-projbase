@@ -89,10 +89,10 @@
       <ng-container *ngIf="logged && showLogin">
         <ng-container *ngTemplateOutlet="userAvatar"></ng-container>
 
-        <button mat-button mat-icon-button color="primary" aria-label="User" [matMenuTriggerFor]="usuarioMenu">
+        <button mat-button mat-icon-button color="primary" aria-label="User" [matMenuTriggerFor]="userMenu">
           <mat-icon>keyboard_arrow_down</mat-icon>
         </button>
-        <mat-menu #usuarioMenu="matMenu" xPosition="before" class="mat-menu-panel-login">
+        <mat-menu #userMenu="matMenu" xPosition="before" class="mat-menu-panel-login">
 
           <ng-container *ngIf="user && user.uri; else hasNotUri">
             <a mat-menu-item [routerLink]="user.uri" [ngStyle]="{'height': showRoles ? '80px' : '58px'}">
@@ -178,10 +178,10 @@
         <ng-container *ngTemplateOutlet="userAvatar"></ng-container>
 
         <button mat-button mat-icon-button color="primary" class="mr-3" aria-label="User"
-                [matMenuTriggerFor]="usuarioMenu">
+                [matMenuTriggerFor]="userMenu">
           <mat-icon>keyboard_arrow_down</mat-icon>
         </button>
-        <mat-menu #usuarioMenu="matMenu" xPosition="before" class="mat-menu-panel-login">
+        <mat-menu #userMenu="matMenu" xPosition="before" class="mat-menu-panel-login">
 
           <ng-container *ngIf="user && user.uri; else hasNotUri1">
             <a mat-menu-item [routerLink]="user.uri" [ngStyle]="{'height': showRoles ? '80px' : '58px'}">

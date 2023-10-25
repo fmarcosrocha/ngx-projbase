@@ -8,7 +8,7 @@
 
         <form class="submit-form">
           <mat-label>Choice an option</mat-label>
-          <mat-form-field appearance="outline" class="w-100 mat-form-field-label-out" floatLabel="never" color="accent">
+          <mat-form-field appearance="outline" class="w-100 mat-form-field-label-out" floatLabel="never">
             <mat-select name="value" [(ngModel)]="value" [formControl]="inputFormControl">
               <mat-option value="option1">Option 1</mat-option>
               <mat-option value="option2" disabled>Option 2 (disabled)</mat-option>
@@ -30,7 +30,7 @@
 <pre>
 &lt;form class="submit-form"&gt;
   &lt;mat-label&gt;Choice an option&lt;/mat-label&gt;
-  &lt;mat-form-field appearance="outline" class="w-100 mat-form-field-label-out" floatLabel="never" color="accent"&gt;
+  &lt;mat-form-field appearance="outline" class="w-100 mat-form-field-label-out" floatLabel="never"&gt;
     &lt;mat-select name="value" [(ngModel)]="value" [formControl]="inputFormControl"&gt;
       &lt;mat-option value="option1"&gt;Option 1&lt;/mat-option&gt;
       &lt;mat-option value="option2" disabled&gt;Option 2 (disabled)&lt;/mat-option&gt;

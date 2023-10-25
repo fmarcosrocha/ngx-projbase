@@ -9,7 +9,7 @@
 
         <form class="submit-form">
           <mat-label>Label</mat-label>
-          <mat-form-field appearance="outline" class="w-100 mat-form-field-label-out" floatLabel="never" color="accent">
+          <mat-form-field appearance="outline" class="w-100 mat-form-field-label-out" floatLabel="never" >
             <input matInput type="text" placeholder="input example" name="value" [(ngModel)]="value" [formControl]="inputFormControl">
 
             <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value = ''">
@@ -31,7 +31,7 @@
 <pre>
 &lt;form class="submit-form"&gt;
   &lt;mat-label&gt;Label&lt;/mat-label&gt;
-  &lt;mat-form-field appearance="outline" class="w-100 mat-form-field-label-out" floatLabel="never" color="accent"&gt;
+  &lt;mat-form-field appearance="outline" class="w-100 mat-form-field-label-out" floatLabel="never"&gt;
     &lt;input matInput type="text" placeholder="input example" name="value" [(ngModel)]="value"
       [formControl]="inputFormControl"&gt;
 

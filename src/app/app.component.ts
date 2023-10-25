@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
     private _titleService: Title) {
   }
 
-  userLogged = {
+  loggedUser = {
     initial: 'J',
     firstName: 'Shiba',
     lastName: 'The Dog',

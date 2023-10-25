@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-notifications',
-  template: 'notifications'
+  templateUrl: './notifications.component.html',
 })
 
 export class NotificationsComponent {

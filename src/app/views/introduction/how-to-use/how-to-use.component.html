@@ -136,7 +136,7 @@ import {{'{'}} ProjBaseModule {{'}'}} from 'projbase';
       ]
   {{'}'}}"
   [logged]="isLogged"
-  [user]="userLogged"
+  [user]="loggedUser"
   (openMenu)="openMenu()"
   (login)="login()"
   (logoff)="logoff()"
@@ -174,7 +174,7 @@ public scrollPage (evt: number) {{'{'}}
   @ViewChild('sidebar', {{'{'}} static: false {{'}'}}) sidebarRef!: MainContainerComponent;
 
 
- usuarioLogado = {{'{'}}
+ loggedUser = {{'{'}}
   initial: 'J',
   firstName: 'John',
   lastName: 'Doe',

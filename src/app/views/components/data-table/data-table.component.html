@@ -28,7 +28,7 @@
         <div class="d-flex">
           <div class="w-100">
             <mat-label>sort by</mat-label>
-            <mat-form-field appearance="outline" class="w-100 mat-form-field-label-out" floatLabel="never" color="accent">
+            <mat-form-field appearance="outline" class="w-100 mat-form-field-label-out" floatLabel="never">
               <mat-select name="value" [(ngModel)]="sortCtrl.sorting" (matSortChange)="sortCtrl.sort()">
                 <mat-option value="name">Name</mat-option>
                 <mat-option value="lastname">Lastname</mat-option>
@@ -52,12 +52,14 @@
         <ng-container matColumnDef="_select">
           <mat-header-cell *matHeaderCellDef>
             <mat-checkbox (change)="$event ? selectionCtrl.selectAll() : null"
+                          color="primary"
                           [checked]="selectionCtrl.items.hasValue() && selectionCtrl.checkSelecteds()"
                           [indeterminate]="selectionCtrl.items.hasValue() && !selectionCtrl.checkSelecteds()">
             </mat-checkbox>
           </mat-header-cell>
           <mat-cell *matCellDef="let row">
             <mat-checkbox (click)="$event.stopPropagation()"
+                          color="primary"
                           (change)="$event ? selectionCtrl.items.toggle(row) : null"
                           [checked]="selectionCtrl.items.isSelected(row)">
             </mat-checkbox>
