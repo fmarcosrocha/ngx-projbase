@@ -29,7 +29,7 @@ export class DateUtil {
 		return null;
 	}
 
-	static buildDate(year, month, day){
+	static buildDate(year: any, month: any, day: any){
 		return new Date(year+'/'+month+'/'+day);
 	}
 
@@ -39,15 +39,16 @@ export class DateUtil {
 			return null;
 		}
 		const datepipe: DatePipe = new DatePipe('pt-BR');
-		return datepipe.transform(date, 'yyyy-MM-dd').toString();
+		return date ? datepipe.transform(date, 'yyyy-MM-dd')?.toString() : null;
 	}
 
-	static cloneDate(date: any): Date {
-		if(!date){
-			return null;
-		}
-		return this.fromJsonDate(this.toJsonDate(date));
-	}
+  static cloneDate(date: any): Date | null {
+    if (!date) {
+      return null;
+    }
+    const jsonDate = this.toJsonDate(date);
+    return jsonDate ? this.fromJsonDate(jsonDate) : null;
+  }
 
 	// se < 0, é pq d2 é menor que d1.
 	static diffInDays(d1: Date, d2: Date) {
@@ -56,13 +57,13 @@ export class DateUtil {
 	}
 
 	// Date para 'dd/MM/yyyy'
-	static formatDate(date: any) {
+	static formatDate(date: any): any {
 		if(!date){
 			return null;
 		}
 		if(date instanceof Date){
 			const datepipe: DatePipe = new DatePipe('pt-BR');
-			return datepipe.transform(date, 'dd/MM/yyyy').toString();
+			return datepipe.transform(date, 'dd/MM/yyyy')?.toString();
 		} else {
 			return DateUtil.formatDate(DateUtil.fromJsonDate(date));
 		}
