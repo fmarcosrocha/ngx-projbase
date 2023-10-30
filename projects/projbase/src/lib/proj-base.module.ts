@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ProjBaseRouting } from './proj-base-routing.module';
-import { MainContainerComponent } from './main-container/main-container.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
-import { BreadcumbComponent } from './breadcumb/breadcumb.component';
-import { FileDropDirective } from './file-drop-directive/file-drop.directive';
+import { MainContainerComponent } from './components/base/main-container/main-container.component';
+import { NavbarComponent } from './components/base/navbar/navbar.component';
+import { FooterComponent } from './components/base/footer/footer.component';
+import { BreadcumbComponent } from './components/base/breadcumb/breadcumb.component';
+import { FileDropDirective } from './directives/file-drop-directive/file-drop.directive';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
