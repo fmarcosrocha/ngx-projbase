@@ -1,7 +1,7 @@
 # NGX-ProjBase
 
-NGX ProjBase is a base project designed to support building a new
-Angular Application based on Material Angular with high produtivity.
+NGX ProjBase is part of Futurepages Framework. It's a base project designed
+to support building a new Angular Application based on Material Angular with high produtivity.
 
 Its code is open under the GNU Lesser General Public License, version 3.0 (LGPL-3.0), an OSI Approved License.
 LGPL-3.0 is a set of additional permissions added to version 3 of the GNU General Public License.
